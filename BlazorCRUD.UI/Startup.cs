@@ -1,6 +1,6 @@
 using BlazorCRUD.UI.Data;
 using BlazorCRUD.UI.Interfaces;
-using BlazorCRUD.UI.Servicios;
+using BlazorCRUD.UI.Servicos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +10,7 @@ using System.Net.Http;
 
 namespace BlazorCRUD.UI
 {
-	public class Startup
+    public class Startup
 	{
 		public Startup(IConfiguration configuration)
 		{

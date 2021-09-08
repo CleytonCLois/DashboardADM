@@ -5,7 +5,7 @@ using BlazorCRUD.UI.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BlazorCRUD.UI.Servicios
+namespace BlazorCRUD.UI.Servicos
 {
     public class PrefeituraServico : IPrefeituraServico
 	{
