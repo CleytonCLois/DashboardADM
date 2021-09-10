@@ -1,16 +1,23 @@
-﻿using BlazorCRUD.Model;
-using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BlazorCRUD.Data.Dapper.Repositorios
+﻿namespace BlazorCRUD.Data.Dapper.Repositorios
 {
-	public class GraficoRepositorio : IGraficoRepositorio
+    #region " Usings "
+
+    using BlazorCRUD.Model;
+    using global::Dapper;
+    using System.Collections.Generic;
+    using System.Data.SqlClient;
+    using System.Threading.Tasks;
+
+    #endregion
+
+    #region " GraficoRepositorio "
+
+    public class GraficoRepositorio : IGraficoRepositorio
 	{
-		private string _connectionString;
+        #region " Conexão "
+
+        private string _connectionString;
+
 		public GraficoRepositorio(string connectionString)
 		{
 			_connectionString = connectionString;
@@ -21,7 +28,11 @@ namespace BlazorCRUD.Data.Dapper.Repositorios
 			return new SqlConnection(_connectionString);
 		}
 
-		public async Task<List<Grafico>> PreencherDados()
+        #endregion
+
+        #region " Funções/Consultas "
+
+        public async Task<List<Grafico>> PreencherDados()
 		{
 			var db = dbConnection();
 
@@ -66,5 +77,8 @@ namespace BlazorCRUD.Data.Dapper.Repositorios
 			return (List<Grafico>)await db.QueryAsync<Grafico>(sql, new { });
 		}
 
-	}
+        #endregion
+    }
+
+    #endregion
 }

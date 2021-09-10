@@ -15,7 +15,7 @@ else
 {
     <div class="row" style="justify-content: space-between; border: 15px solid transparent; border-radius: 20px;">
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-green order-card">
+            <div class="card bg-c-blue order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Prefeituras Atualizadas</h6>
                     <h2 class="text-right"><i class="oi oi-circle-check f-left"></i><span>@atualizados.valores.ToString()</span></h2>
@@ -23,7 +23,7 @@ else
             </div>
         </div>
         <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-blue order-card">
+            <div class="card bg-c-green order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Prefeituras Atualizadas nas Últimas 24hrs</h6>
                     <h2 class="text-right"><i class="oi oi-timer f-left"></i><span>@atualizados24hrs.valores.ToString()</span></h2>
@@ -51,7 +51,7 @@ else
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <h5 class="card-header">Gráfico Circular Prefeituras</h5>
+                <h5 class="card-header">Gráfico Barra Prefeituras</h5>
                 <div class="card-body">
                     @*<h1>GRÁFICO 01</h1>*@
                     <RadzenChart>
@@ -70,9 +70,9 @@ else
         </div>
         <div class="col-md-6">
             <div class="card">
-                <h5 class="card-header">Gráfico Barra Prefeituras</h5>
+                <h5 class="card-header">Gráfico Circular Prefeituras</h5>
                 <div class="card-body">
-                @*<h1>GRÁFICO 02</h1>*@
+                    @*<h1>GRÁFICO 02</h1>*@
                     <RadzenChart>
                         <RadzenDonutSeries Data="@grafico" CategoryProperty="texto" Title="Quantidade de Prefeituras" ValueProperty="valores">
                             <TitleTemplate>

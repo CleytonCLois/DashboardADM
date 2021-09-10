@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj": {}
+    "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj": {
+    "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj",
+        "projectUniqueName": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj",
         "projectName": "BlazorCRUD.Data.Dapper",
-        "projectPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj",
+        "projectPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj",
         "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\obj\\",
+        "outputPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -32,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj": {
-                "projectPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj"
+              "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj": {
+                "projectPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj"
               }
             }
           }
@@ -106,14 +106,14 @@
         }
       }
     },
-    "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj": {
+    "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
+        "projectUniqueName": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
         "projectName": "BlazorCRUD.Model",
-        "projectPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
+        "projectPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
         "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\obj\\",
+        "outputPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -200,14 +200,14 @@
         }
       }
     },
-    "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj": {
+    "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj",
+        "projectUniqueName": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj",
         "projectName": "BlazorCRUD.UI",
-        "projectPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj",
+        "projectPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj",
         "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\obj\\",
+        "outputPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -228,11 +228,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj": {
-                "projectPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj"
+              "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj": {
+                "projectPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj"
               },
-              "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj": {
-                "projectPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj"
+              "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj": {
+                "projectPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj"
               }
             }
           }

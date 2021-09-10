@@ -1,14 +1,23 @@
-﻿using BlazorCRUD.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BlazorCRUD.UI.Interfaces
+﻿namespace BlazorCRUD.UI.Interfaces
 {
-	public interface IGraficoServico
+	#region " Usings "
+
+	using BlazorCRUD.Model;
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Threading.Tasks;
+
+    #endregion
+
+    #region " IGraficoServico "
+
+    public interface IGraficoServico
 	{
-		Task<List<Grafico>> PreencherDados();
+
+        #region " Funções "
+
+        Task<List<Grafico>> PreencherDados();
 
 		Task<List<Grafico>> PrefeiturasAtualizadas();
 
@@ -17,5 +26,9 @@ namespace BlazorCRUD.UI.Interfaces
 		Task<List<Grafico>> PrefeiturasDesatualizadas();
 
 		Task<List<Grafico>> PrefeiturasDesatualizadasMaisDeUmaSemana();
-	}
+        
+		#endregion
+    }
+
+    #endregion
 }

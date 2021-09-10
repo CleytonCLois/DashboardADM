@@ -3156,11 +3156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
+      "projectUniqueName": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
       "projectName": "BlazorCRUD.Model",
-      "projectPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
+      "projectPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
       "packagesPath": "C:\\Users\\Marcelo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\obj\\",
+      "outputPath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

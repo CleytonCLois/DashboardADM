@@ -1,14 +1,23 @@
-﻿using BlazorCRUD.Model;
-using Dapper;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Threading.Tasks;
-
-namespace BlazorCRUD.Data.Dapper.Repositorios
+﻿namespace BlazorCRUD.Data.Dapper.Repositorios
 {
+    #region " Usings "
+
+    using BlazorCRUD.Model;
+    using global::Dapper;
+    using System.Collections.Generic;
+    using System.Data.SqlClient;
+    using System.Threading.Tasks;
+
+    #endregion
+
+    #region " PrefeituraRepositorio "
+
     public class PrefeituraRepositorio : IPrefeituraRepositorio
 	{
-		private string _connectionString;
+        #region " Conexão "
+
+        private string _connectionString;
+
 		public PrefeituraRepositorio(string connectionString)
 		{
 			_connectionString = connectionString;
@@ -19,7 +28,11 @@ namespace BlazorCRUD.Data.Dapper.Repositorios
 			return new SqlConnection(_connectionString);
 		}
 
-		public async Task<IEnumerable<Prefeitura>> TodasPrefeituras()
+        #endregion
+
+        #region " Funções/Consultas "
+
+        public async Task<IEnumerable<Prefeitura>> TodasPrefeituras()
 		{
 			var db = dbConnection();
 
@@ -63,5 +76,9 @@ namespace BlazorCRUD.Data.Dapper.Repositorios
 
 			return await db.QueryAsync<Prefeitura>(sql, new { });
 		}
-	}
+
+        #endregion
+    }
+
+    #endregion
 }

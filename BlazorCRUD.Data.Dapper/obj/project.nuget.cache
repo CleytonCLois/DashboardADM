@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "agANjUj5Fm4OiZqkttpWgGT8YRhKrdu4NMvRzvA6gC8Wt7vClh1yPifcABYZZB0MaAlraSg56jClB9MDONy7Ew==",
+  "dgSpecHash": "LK6VC9n0buG/77mI/C0+NArIojJQIImJVe2mY8U34kJ9SqkEHsAn1Y7AyCHSAj+8nLwDDT77CjBzmlWf30XhFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marcelo\\Desktop\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj",
+  "projectFilePath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Data.Dapper\\BlazorCRUD.Data.Dapper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcelo\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
