@@ -112,7 +112,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 113 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Prefeituras.razor"
+#line 175 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Prefeituras.razor"
        
 
     GraficoBarra atualizados = new GraficoBarra();

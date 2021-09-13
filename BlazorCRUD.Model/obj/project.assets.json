@@ -780,7 +780,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Radzen.Blazor/3.9.8": {
+      "Radzen.Blazor/3.9.9": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.0",
@@ -2169,10 +2169,10 @@
         "packageIcon.png"
       ]
     },
-    "Radzen.Blazor/3.9.8": {
-      "sha512": "FKyfh7YhyDfLF+NxXpv4LBduZ8jJi/N2/f4qDVPVnLhStJw39U4wZsov9JH3yElaNJxJVyp7mAYoBovLqxnjxQ==",
+    "Radzen.Blazor/3.9.9": {
+      "sha512": "/Wb2RMIb27IJLy9MkdldUZfKt9HDDeuEurhU4AffSPW2WR8UCBP6v+BY09XsEQDPGzLmOD7LaN4L3xwO7UoRaQ==",
       "type": "package",
-      "path": "radzen.blazor/3.9.8",
+      "path": "radzen.blazor/3.9.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2184,7 +2184,7 @@
         "icon.png",
         "lib/net5.0/Radzen.Blazor.dll",
         "lib/netstandard2.1/Radzen.Blazor.dll",
-        "radzen.blazor.3.9.8.nupkg.sha512",
+        "radzen.blazor.3.9.9.nupkg.sha512",
         "radzen.blazor.nuspec",
         "staticwebassets/Radzen.Blazor.js",
         "staticwebassets/css/dark-base.css",
@@ -3144,7 +3144,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.9",
       "Microsoft.Extensions.Http >= 5.0.0",
       "Newtonsoft.Json >= 13.0.1",
-      "Radzen.Blazor >= 3.9.8",
+      "Radzen.Blazor >= 3.9.9",
       "System.Data.SqlClient >= 4.8.2",
       "bootstrap >= 5.1.0"
     ]
@@ -3217,7 +3217,7 @@
           },
           "Radzen.Blazor": {
             "target": "Package",
-            "version": "[3.9.8, )"
+            "version": "[3.9.9, )"
           },
           "System.Data.SqlClient": {
             "target": "Package",

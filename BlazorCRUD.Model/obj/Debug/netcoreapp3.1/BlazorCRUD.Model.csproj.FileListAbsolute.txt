@@ -11,3 +11,16 @@ C:\Users\Marcelo\Desktop\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj
 C:\Users\Marcelo\Desktop\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.dll
 C:\Users\Marcelo\Desktop\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.pdb
 C:\Users\Marcelo\Desktop\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.genruntimeconfig.cache
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\bin\Debug\netcoreapp3.1\BlazorCRUD.Model.deps.json
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\bin\Debug\netcoreapp3.1\BlazorCRUD.Model.runtimeconfig.json
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\bin\Debug\netcoreapp3.1\BlazorCRUD.Model.runtimeconfig.dev.json
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\bin\Debug\netcoreapp3.1\BlazorCRUD.Model.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\bin\Debug\netcoreapp3.1\BlazorCRUD.Model.pdb
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.csproj.AssemblyReference.cache
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.AssemblyInfoInputs.cache
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.AssemblyInfo.cs
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.csproj.CoreCompileInputs.cache
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.pdb
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.genruntimeconfig.cache

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "10MpmWAxhfLbrf5qE7mPx/H7fE8o5c+E+FcxGP7lf/uOvufVB8SZylUi3ahJyAvEJ7CzvOZfTNh1w+d0ET67Pw==",
+  "dgSpecHash": "MxhRr6lazHH3kkzeGi0Xteg+hiDGnAhX8B+i2XgnR/V2nOD2saCeD+u7bsnyPF1mO02Vrx5v/6fSmlYiMrCTaw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.Model\\BlazorCRUD.Model.csproj",
   "expectedPackageFiles": [
@@ -47,7 +47,7 @@
     "C:\\Users\\Marcelo\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\Marcelo\\.nuget\\packages\\radzen.blazor\\3.9.8\\radzen.blazor.3.9.8.nupkg.sha512",
+    "C:\\Users\\Marcelo\\.nuget\\packages\\radzen.blazor\\3.9.9\\radzen.blazor.3.9.9.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

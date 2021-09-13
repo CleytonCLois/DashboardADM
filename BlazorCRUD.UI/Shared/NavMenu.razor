@@ -1,28 +1,31 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
-	<a class="navbar-brand" href="">BlazorCRUD.UI</a>
-	<button class="navbar-toggler" @onclick="ToggleNavMenu">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+    <img src="logo.png" style="display: block; margin-left: auto; margin-right: auto">
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-	<ul class="nav flex-column">
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-				<span class="oi oi-home" aria-hidden="true"></span> Home
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="filmlist">
-				<span class="oi oi-list-rich" aria-hidden="true"></span> Exemplo List
-			</NavLink>
-		</li>
-		<li class="nav-item px-3">
-			<NavLink class="nav-link" href="filmdetails">
-				<span class="oi oi-plus" aria-hidden="true"></span>Add Exemplo
-			</NavLink>
-		</li>
-	</ul>
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="Prefeituras" Match="NavLinkMatch.All">
+                <RadzenIcon Icon="account_balance" />
+                <span aria-hidden="true">Prefeituras</span>
+            </NavLink>
+        </li>
+        @*<li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="filmlist">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Exemplo List
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="filmdetails">
+                <span class="oi oi-plus" aria-hidden="true"></span>Add Exemplo
+            </NavLink>
+        </li>*@
+    </ul>
 </div>
 
 @code {
