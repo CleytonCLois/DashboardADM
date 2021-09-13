@@ -1,4 +1,11 @@
-﻿.grafico {
+﻿.loading {
+    position: absolute;
+    left: 45%;
+    top: 35%
+}
+
+
+.grafico {
     background-color: #E8E8E8;
     border: 20px
 }
@@ -103,15 +110,15 @@
     float: right;
 }
 
-/*.main-part {
-    width: 80%;
-    margin: 0 auto;
+.main-part {
+    width: 100%;
+    /*margin: 0 auto;*/
     text-align: center;
-    padding: 0px 5px;
+    padding: 0px 0px;
 }
 
 .cpanel {
-    width: 32%;
+    width: 25%;
     display: inline-block;
     background-color: #34495E;
     color: #fff;
@@ -169,6 +176,20 @@
     background-color: #2980B9;
 }
 
+.cpanel-red .card-content-part {
+    background-color: #CF4436;
+}
+
+/*.cpanel-skyblue .icon-part, .cpanel-skyblue .icon-part i {
+    background-color: #8E44AD;
+}
+
+.cpanel-skyblue .card-content-part {
+    background-color: #803D9B;
+}*/
+
+
+/* PREFEITURAS ATUALIZADAS */
 .cpanel-blue .card-content-part {
     background-color: #2573A6;
 }
@@ -176,15 +197,3 @@
 .cpanel-red .icon-part, .cpanel-red .icon-part i {
     background-color: #E74C3C;
 }
-
-.cpanel-red .card-content-part {
-    background-color: #CF4436;
-}
-
-.cpanel-skyblue .icon-part, .cpanel-skyblue .icon-part i {
-    background-color: #8E44AD;
-}
-
-.cpanel-skyblue .card-content-part {
-    background-color: #803D9B;
-}*/

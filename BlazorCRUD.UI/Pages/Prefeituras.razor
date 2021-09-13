@@ -5,107 +5,58 @@
 @using Interfaces
 @inject IPrefeituraServico PrefeituraServico
 @inject IGraficoServico GraficoServico
+@inject NavigationManager uriHelper;
+@using System.Threading;
 
 @if (prefeituras == null)
 {
-    <h3>Aguarde até carregar todos os dados.</h3>
-    <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px" />
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
 }
 else
 {
-    @*<div class="main-part">
+    <div class="row" style="border: 15px solid transparent; text-align: center; padding: 0px 0px;">
         <div class="cpanel">
             <div class="icon-part">
-                <i class="fa fa-users" aria-hidden="true"></i><br>
-                <small>Members</small>
-                <p>985</p>
+                <i class="fas fa-check" aria-hidden="true"></i><br>
+                <small>Prefeituras Atualizadas</small>
+                <p>@atualizados.valores.ToString()</p>
             </div>
             <div class="card-content-part">
-                <a href="#">More Details </a>
+                <a href="PrefeiturasAtualizadas">Mais Detalhes +</a>
             </div>
         </div>
         <div class="cpanel cpanel-green">
             <div class="icon-part">
-                <i class="fa fa-money" aria-hidden="true"></i><br>
-                <small>Account</small>
-                <p>$ 452</p>
+                <i class="fas fa-clock" aria-hidden="true"></i><br>
+                <small>Prefeituras Atualizadas nas Últimas 24hrs</small>
+                <p>@atualizados24hrs.valores.ToString()</p>
             </div>
             <div class="card-content-part">
-                <a href="#">More Details </a>
+                <a href="PrefeiturasAtualizadas24hrs">Mais Detalhes +</a>
             </div>
         </div>
         <div class="cpanel cpanel-orange">
             <div class="icon-part">
-                <i class="fa fa-bell" aria-hidden="true"></i><br>
-                <small>Alert</small>
-                <p>11 New</p>
+                <i class="fas fa-exclamation-circle" aria-hidden="true"></i><br>
+                <small>Prefeituras Desatualizadas</small>
+                <p>@desatualizados.valores.ToString()</p>
             </div>
             <div class="card-content-part">
-                <a href="#">More Details </a>
-            </div>
-        </div>
-        <div class="cpanel cpanel-blue">
-            <div class="icon-part">
-                <i class="fa fa-tasks" aria-hidden="true"></i><br>
-                <small>Task</small>
-                <p>85</p>
-            </div>
-            <div class="card-content-part">
-                <a href="#">More Details </a>
+                <a href="PrefeiturasDesatualizadas">Mais Detalhes + </a>
             </div>
         </div>
         <div class="cpanel cpanel-red">
             <div class="icon-part">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i><br>
-                <small>Cart</small>
-                <p>$ 45</p>
+                <i class="fas fa-times-circle" aria-hidden="true"></i><br>
+                <small>Prefeituras Desatualizadas Por Mais de 24Hrs</small>
+                <p>@desatualizadosMaisDeUmaSemana.valores.ToString()</p>
             </div>
             <div class="card-content-part">
-                <a href="#">More Details </a>
-            </div>
-        </div>
-        <div class="cpanel cpanel-skyblue">
-            <div class="icon-part">
-                <i class="fa fa-comments" aria-hidden="true"></i><br>
-                <small>Mentions</small>
-                <p>104</p>
-            </div>
-            <div class="card-content-part">
-                <a href="#">More Details </a>
-            </div>
-        </div>
-    </div>*@
-    <div class="row" style="justify-content: space-between; border: 15px solid transparent; border-radius: 20px;">
-        <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-blue order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Prefeituras Atualizadas</h6>
-                    <h2 class="text-right"><i class="oi oi-circle-check f-left"></i><span>@atualizados.valores.ToString()</span></h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-green order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Prefeituras Atualizadas nas Últimas 24hrs</h6>
-                    <h2 class="text-right"><i class="oi oi-timer f-left"></i><span>@atualizados24hrs.valores.ToString()</span></h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-yellow order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Prefeituras Desatualizadas</h6>
-                    <h2 class="text-right"><i class="oi oi-warning f-left"></i><span>@desatualizados.valores.ToString()</span></h2>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-pink order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Prefeituras Desatualizadas Por Mais de Uma Semana</h6>
-                    <h2 class="text-right"><i class="oi oi-circle-x f-left"></i><span>@desatualizadosMaisDeUmaSemana.valores.ToString()</span></h2>
-                </div>
+                <a href="PrefeiturasDesatualizadasMaisDeUmaSemana">Mais Detalhes + </a>
             </div>
         </div>
     </div>
@@ -115,7 +66,6 @@ else
             <div class="card">
                 <h5 class="card-header">Gráfico Barra Prefeituras</h5>
                 <div class="card-body">
-                    @*<h1>GRÁFICO 01</h1>*@
                     <RadzenChart>
                         <RadzenColumnSeries Data="@prefeiturasAtualizadas" Title="Atualizadas Hoje" LineType="LineType.Dashed" ValueProperty="valores" />
                         <RadzenColumnSeries Data="@prefeiturasAtualizadas24hrs" Title="Atualizadas nas Últimas 24hrs" ValueProperty="valores" />
@@ -134,7 +84,6 @@ else
             <div class="card">
                 <h5 class="card-header">Gráfico Circular Prefeituras</h5>
                 <div class="card-body">
-                    @*<h1>GRÁFICO 02</h1>*@
                     <RadzenChart>
                         <RadzenDonutSeries Data="@grafico" CategoryProperty="texto" Title="Quantidade de Prefeituras" ValueProperty="valores">
                             <TitleTemplate>
@@ -155,7 +104,6 @@ else
             <div class="card">
                 <h5 class="card-header">Lista de Prefeituras</h5>
                 <div class="card-body">
-                    @*<h1>TABELA</h1>*@
                     <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Prefeitura" Style="margin-bottom: 50px; margin-top: 50px; background-color:red;">
                         <Columns>
                             <RadzenDataGridColumn TItem="Prefeitura" Property="id" Title="ID">
@@ -202,6 +150,11 @@ else
 
             inserirDadosCards(prefeituras);
             filtro = prefeituras;
+
+            //var timer = new Timer(new TimerCallback(_ =>
+            //{
+            //    uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            //}), null, 20000, 20000);
         }
         catch (Exception e)
         {
@@ -249,3 +202,4 @@ else
 @*https://www.bootdey.com/snippets/view/Gradients-dashboard-cards#css componente do card*@
 @*https://blazor.radzen.com/dashboard outros componentes*@
 @*https://useiconic.com/open icones utilizados*@
+@*https://www.nicesnippets.com/snippet/admin-panel-dashboard-card-design-usign-html-and-css cards*@

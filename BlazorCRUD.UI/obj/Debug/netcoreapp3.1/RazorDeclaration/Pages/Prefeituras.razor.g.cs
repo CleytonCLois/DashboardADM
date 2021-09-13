@@ -103,6 +103,13 @@ using Interfaces;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Prefeituras.razor"
+using System.Threading;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/prefeituras")]
     public partial class Prefeituras : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -112,7 +119,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 175 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Prefeituras.razor"
+#line 123 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Prefeituras.razor"
        
 
     GraficoBarra atualizados = new GraficoBarra();
@@ -143,6 +150,11 @@ using Interfaces;
 
             inserirDadosCards(prefeituras);
             filtro = prefeituras;
+
+            var timer = new Timer(new TimerCallback(_ =>
+            {
+                uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            }), null, 20000, 20000);
         }
         catch (Exception e)
         {
@@ -188,6 +200,7 @@ using Interfaces;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager uriHelper { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
