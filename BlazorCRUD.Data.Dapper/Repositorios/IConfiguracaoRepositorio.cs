@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BlazorCRUD.UI.Interfaces
+namespace BlazorCRUD.Data.Dapper.Repositorios
 {
-    public interface IExemploService
+    public interface IConfiguracaoRepositorio
 	{
 		Task<IEnumerable<Configuracao>> TodasConfiguracoes();
 	

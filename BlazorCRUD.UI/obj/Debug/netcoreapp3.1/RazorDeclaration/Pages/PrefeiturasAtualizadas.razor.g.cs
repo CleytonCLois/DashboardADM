@@ -121,7 +121,6 @@ using Interfaces;
 
     protected override async Task OnInitializedAsync()
     {
-
         try
         {
             prefeituras = await PrefeituraServico.PrefeiturasAtualizadas();

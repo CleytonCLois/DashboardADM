@@ -112,23 +112,21 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
+#line 22 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
        
-    //private IEnumerable<Exemplo> films;
-
     int? value;
 
     double dblValue = 0.0;
 
     void OnChange(dynamic value, string name)
     {
+        dblValue = value;
     }
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            //films = await ExemploService.GetAllExemplos();
         }
         catch (Exception e)
         {
@@ -142,13 +140,11 @@ using Interfaces;
     {
     }
 
-    async Task OnBusyClick()
-    {
-        busy = true;
-        await Task.Delay(2000);
-        busy = false;
-    }
-
+    //async Task OnBusyClick()
+    //{
+    //    int teste = 0;
+    //    OnChange(teste, "Numeric");
+    //}
 
 #line default
 #line hidden
