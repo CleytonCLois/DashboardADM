@@ -192,7 +192,6 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ExemploDetails.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ExemploList.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
-C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Prefeituras.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
@@ -207,7 +206,6 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Pages\ExemploDetails.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Pages\ExemploList.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
-C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Prefeituras.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Shared\SurveyPrompt.razor.g.cs

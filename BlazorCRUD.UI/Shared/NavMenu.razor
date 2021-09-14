@@ -5,26 +5,30 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="Prefeituras" Match="NavLinkMatch.All">
-                <RadzenIcon Icon="account_balance" />
-                <span aria-hidden="true">Prefeituras</span>
-            </NavLink>
-        </li>
-        @*<li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
+                <span class="oi oi-home" aria-hidden="true"></span> Prefeituras
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="filmlist">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Exemplo List
+            <NavLink class="nav-link" href="PrefeiturasAtualizadas" Match="NavLinkMatch.All">
+                <span class="oi oi-check" aria-hidden="true"></span> Atualizadas
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="filmdetails">
-                <span class="oi oi-plus" aria-hidden="true"></span>Add Exemplo
+            <NavLink class="nav-link" href="PrefeiturasAtualizadas24hrs" Match="NavLinkMatch.All">
+                <span class="oi oi-clock" aria-hidden="true"></span> Últimas 24 Hrs
             </NavLink>
-        </li>*@
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="PrefeiturasDesatualizadas" Match="NavLinkMatch.All">
+                <span class="oi oi-warning" aria-hidden="true"></span> Desatualizadas
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="PrefeiturasDesatualizadasMaisDeUmaSemana" Match="NavLinkMatch.All">
+                <span class="oi oi-x" aria-hidden="true"></span> Mais de uma semana
+            </NavLink>
+        </li>
     </ul>
 </div>
 

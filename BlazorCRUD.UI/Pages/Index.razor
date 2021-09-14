@@ -1,7 +1,205 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@inject HttpClient http
+@using Model
+@using Interfaces
+@inject IPrefeituraServico PrefeituraServico
+@inject IGraficoServico GraficoServico
+@inject NavigationManager uriHelper;
+@using System.Threading;
 
-Welcome to your new app.
+@if (prefeituras == null)
+{
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
+}
+else
+{
+    <div class="row" style="border: 15px solid transparent; text-align: center; padding: 0px 0px;">
+        <div class="cpanel cpanel-blue">
+            <div class="icon-part">
+                <i class="fas fa-check" aria-hidden="true"></i><br>
+                <small>Prefeituras atualizadas</small>
+                <p>@atualizados.valores.ToString()</p>
+            </div>
+            <div class="card-content-part">
+                <a href="PrefeiturasAtualizadas">Mais Detalhes +</a>
+            </div>
+        </div>
+        <div class="cpanel cpanel-green">
+            <div class="icon-part">
+                <i class="fas fa-clock" aria-hidden="true"></i><br>
+                <small>Prefeituras atualizadas nas últimas 24hrs</small>
+                <p>@atualizados24hrs.valores.ToString()</p>
+            </div>
+            <div class="card-content-part">
+                <a href="PrefeiturasAtualizadas24hrs">Mais Detalhes +</a>
+            </div>
+        </div>
+        <div class="cpanel cpanel-orange">
+            <div class="icon-part">
+                <i class="fas fa-exclamation-circle" aria-hidden="true"></i><br>
+                <small>Prefeituras desatualizadas</small>
+                <p>@desatualizados.valores.ToString()</p>
+            </div>
+            <div class="card-content-part">
+                <a href="PrefeiturasDesatualizadas">Mais Detalhes + </a>
+            </div>
+        </div>
+        <div class="cpanel cpanel-red">
+            <div class="icon-part">
+                <i class="fas fa-times-circle" aria-hidden="true"></i><br>
+                <small>Prefeituras desatualizadas por mais de 24Hrs</small>
+                <p>@desatualizadosMaisDeUmaSemana.valores.ToString()</p>
+            </div>
+            <div class="card-content-part">
+                <a href="PrefeiturasDesatualizadasMaisDeUmaSemana">Mais Detalhes + </a>
+            </div>
+        </div>
+    </div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="card-header">Gráfico Barra Prefeituras</h5>
+                <div class="card-body">
+                    <RadzenChart>
+                        <RadzenColumnSeries Data="@prefeiturasAtualizadas" Title="Atualizadas hoje" LineType="LineType.Dashed" ValueProperty="valores" />
+                        <RadzenColumnSeries Data="@prefeiturasAtualizadas24hrs" Title="Atualizadas nas últimas 24hrs" ValueProperty="valores" />
+                        <RadzenColumnSeries Data="@prefeiturasDesatualizadas" Title="Desatualizadas" ValueProperty="valores" />
+                        <RadzenColumnSeries Data="@prefeiturasDesatualizadasMaisDeUmaSemana" Title="Desatualizadas a mais De 1 semana" ValueProperty="valores" />
+                        <RadzenColumnOptions Radius="5" />
+                        <RadzenValueAxis>
+                            <RadzenGridLines Visible="true" />
+                            <RadzenAxisTitle Text="Prefeituras" />
+                        </RadzenValueAxis>
+                    </RadzenChart>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="card-header">Gráfico Circular Prefeituras</h5>
+                <div class="card-body">
+                    <RadzenChart>
+                        <RadzenDonutSeries Data="@grafico" CategoryProperty="texto" Title="Quantidade de Prefeituras" ValueProperty="valores">
+                            <TitleTemplate>
+                                <div class="rz-donut-content">
+                                    <div>Prefeituras</div>
+                                    <div>Desatualizadas</div>
+                                </div>
+                            </TitleTemplate>
+                        </RadzenDonutSeries>
+                    </RadzenChart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">Lista de Prefeituras</h5>
+                <div class="card-body">
+                        <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Prefeitura" Style="margin-bottom: 50px;">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="Prefeitura" Property="id" Title="ID">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
+                                <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização">
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="Prefeitura" Property="situacao" Title="Situação da Prefeitura" />
+                            </Columns>
+                        </RadzenDataGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    GraficoBarra atualizados = new GraficoBarra();
+    GraficoBarra atualizados24hrs = new GraficoBarra();
+    GraficoBarra desatualizados = new GraficoBarra();
+    GraficoBarra desatualizadosMaisDeUmaSemana = new GraficoBarra();
+
+    IEnumerable<Prefeitura> filtro;
+
+    private IEnumerable<Prefeitura> prefeituras;
+    private IEnumerable<Grafico> grafico;
+    private IEnumerable<Grafico> prefeiturasAtualizadas;
+    private IEnumerable<Grafico> prefeiturasAtualizadas24hrs;
+    private IEnumerable<Grafico> prefeiturasDesatualizadas;
+    private IEnumerable<Grafico> prefeiturasDesatualizadasMaisDeUmaSemana;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        try
+        {
+            prefeituras = await PrefeituraServico.TodasPrefeituras();
+            grafico = await GraficoServico.PreencherDados();
+            prefeiturasAtualizadas = await GraficoServico.PrefeiturasAtualizadas();
+            prefeiturasAtualizadas24hrs = await GraficoServico.PrefeiturasAtualizadasUltimas24hrs();
+            prefeiturasDesatualizadas = await GraficoServico.PrefeiturasDesatualizadas();
+            prefeiturasDesatualizadasMaisDeUmaSemana = await GraficoServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
+
+            inserirDadosCards(prefeituras);
+            filtro = await PrefeituraServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
+
+            //var timer = new Timer(new TimerCallback(_ =>
+            //{
+            //    uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            //}), null, 20000, 20000);
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+
+    public void inserirDadosCards(IEnumerable<Prefeitura> prefeituras)
+    {
+        double prefeiturasAtualizadas = 0,
+            prefeiturasAtualizadasUltimas24hrs = 0,
+            prefeiturasDesatualizadas = 0,
+            prefeiturasDesatualizadasMaisDeUmaSemana = 0;
+
+        foreach (var item in prefeituras)
+        {
+            switch (item.situacao)
+            {
+                case "1":
+                    prefeiturasAtualizadas++;
+                    item.situacao = "Atualizada";
+                    break;
+                case "2":
+                    prefeiturasAtualizadasUltimas24hrs++;
+                    item.situacao = "Atualizada nas últimas 24 horas";
+                    break;
+                case "3":
+                    prefeiturasDesatualizadas++;
+                    item.situacao = "Desatualizada";
+                    break;
+                case "4":
+                    prefeiturasDesatualizadasMaisDeUmaSemana++;
+                    item.situacao = "Desatualizada a mais de uma semana";
+                    break;
+            }
+        }
+        atualizados.valores = prefeiturasAtualizadas;
+        atualizados24hrs.valores = prefeiturasAtualizadasUltimas24hrs;
+        desatualizados.valores = prefeiturasDesatualizadas;
+        desatualizadosMaisDeUmaSemana.valores = prefeiturasDesatualizadasMaisDeUmaSemana;
+    }
+}
+
+@*http://www.macoratti.net/20/07/blz_awebapi1.htm tutorial utilizado para consumir api*@
+@*https://www.bootdey.com/snippets/view/Gradients-dashboard-cards#css componente do card*@
+@*https://blazor.radzen.com/dashboard outros componentes*@
+@*https://useiconic.com/open icones utilizados*@
+@*https://www.nicesnippets.com/snippet/admin-panel-dashboard-card-design-usign-html-and-css cards*@
