@@ -1,0 +1,66 @@
+﻿@page "/Configuracoes"
+@using Model
+@using Interfaces
+@inject IExemploService ExemploService
+
+@*@if (films == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">                          
+                <h5 class="card-header">Configurações das páginas</h5>
+                <div class="card-body">
+                    <div class="col-xl-6">
+                        <RadzenNumeric TValue="int" Change=@(args => OnChange(args, "Numeric")) /><br />
+                    </div>
+                    <div class="col-xl-6" style="margin-top:10px">
+                        <RadzenButton style="margin: 0 1rem 1rem 0; width: 210px" Icon="save" BusyText="Salvando ..." IsBusy=@busy Click=@OnBusyClick Text="Salvar" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@*}*@
+
+
+@code {
+    //private IEnumerable<Exemplo> films;
+
+    int? value;
+
+    double dblValue = 0.0;
+
+    void OnChange(dynamic value, string name)
+    {
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            //films = await ExemploService.GetAllExemplos();
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+
+    bool busy;
+
+    void OnClick(string buttonName)
+    {
+    }
+
+    async Task OnBusyClick()
+    {
+        busy = true;
+        await Task.Delay(2000);
+        busy = false;
+    }
+
+}

@@ -232,3 +232,5 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Pages\PrefeiturasAtualizadas24hrs.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Pages\PrefeiturasDesatualizadas.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Pages\PrefeiturasDesatualizadasMaisDeUmaSemana.razor.g.cs
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Configuracoes.razor.g.cs
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Configuracoes.razor.g.cs

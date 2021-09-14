@@ -89,6 +89,20 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas24hrs.razor"
+using Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas24hrs.razor"
+using Interfaces;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/PrefeiturasAtualizadas24hrs")]
     public partial class PrefeiturasAtualizadas24hrs : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -97,6 +111,34 @@ using Radzen.Blazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 40 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas24hrs.razor"
+       
+
+    IEnumerable<Prefeitura> filtro;
+
+    private IEnumerable<Prefeitura> prefeituras;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        try
+        {
+            prefeituras = await PrefeituraServico.PrefeiturasAtualizadas24Horas();
+            filtro = prefeituras;
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
 }
 #pragma warning restore 1591

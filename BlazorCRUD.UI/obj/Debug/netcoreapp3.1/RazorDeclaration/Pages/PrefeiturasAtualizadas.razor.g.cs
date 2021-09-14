@@ -103,13 +103,6 @@ using Interfaces;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 9 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas.razor"
-using System.Threading;
-
-#line default
-#line hidden
-#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/PrefeiturasAtualizadas")]
     public partial class PrefeiturasAtualizadas : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -119,7 +112,7 @@ using System.Threading;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas.razor"
+#line 40 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas.razor"
        
 
     IEnumerable<Prefeitura> filtro;
@@ -131,29 +124,8 @@ using System.Threading;
 
         try
         {
-            prefeituras = await PrefeituraServico.TodasPrefeituras();
-                
-            
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 55 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas.razor"
-             foreach (var item in prefeituras)
-            {
-                if (item.situacao == "1")
-                {
-                    filtro = prefeituras;
-                }
-            }
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 61 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas.razor"
-             
+            prefeituras = await PrefeituraServico.PrefeiturasAtualizadas();
+            filtro = prefeituras;
         }
         catch (Exception e)
         {
@@ -164,7 +136,6 @@ using System.Threading;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager uriHelper { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }

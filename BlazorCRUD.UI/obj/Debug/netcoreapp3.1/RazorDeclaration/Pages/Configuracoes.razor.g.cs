@@ -90,21 +90,21 @@ using Radzen.Blazor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasDesatualizadas.razor"
+#line 2 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
 using Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasDesatualizadas.razor"
+#line 3 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
 using Interfaces;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/PrefeiturasDesatualizadas")]
-    public partial class PrefeiturasDesatualizadas : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Configuracoes")]
+    public partial class Configuracoes : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,20 +112,23 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasDesatualizadas.razor"
+#line 30 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
        
+    //private IEnumerable<Exemplo> films;
 
-    IEnumerable<Prefeitura> filtro;
+    int? value;
 
-    private IEnumerable<Prefeitura> prefeituras;
+    double dblValue = 0.0;
+
+    void OnChange(dynamic value, string name)
+    {
+    }
 
     protected override async Task OnInitializedAsync()
     {
-
         try
         {
-            prefeituras = await PrefeituraServico.PrefeiturasDesatualizadas();
-            filtro = prefeituras;
+            //films = await ExemploService.GetAllExemplos();
         }
         catch (Exception e)
         {
@@ -133,12 +136,24 @@ using Interfaces;
         }
     }
 
+    bool busy;
+
+    void OnClick(string buttonName)
+    {
+    }
+
+    async Task OnBusyClick()
+    {
+        busy = true;
+        await Task.Delay(2000);
+        busy = false;
+    }
+
+
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IExemploService ExemploService { get; set; }
     }
 }
 #pragma warning restore 1591

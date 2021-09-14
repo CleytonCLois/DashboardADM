@@ -5,8 +5,6 @@
 @using Interfaces
 @inject IPrefeituraServico PrefeituraServico
 @inject IGraficoServico GraficoServico
-@inject NavigationManager uriHelper;
-@using System.Threading;
 
 @if (prefeituras == null)
 {
@@ -21,7 +19,7 @@ else
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <h5 class="card-header">Lista de Prefeituras</h5>
+                <h5 class="card-header">Lista de prefeituras atualizadas</h5>
                 <div class="card-body">
                     <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Prefeitura" Style="margin-bottom: 50px;">
                         <Columns>
@@ -50,15 +48,8 @@ else
 
         try
         {
-            prefeituras = await PrefeituraServico.TodasPrefeituras();
-                
-            @foreach (var item in prefeituras)
-            {
-                if (item.situacao == "1")
-                {
-                    filtro = prefeituras;
-                }
-            }
+            prefeituras = await PrefeituraServico.PrefeiturasAtualizadas();
+            filtro = prefeituras;
         }
         catch (Exception e)
         {
@@ -66,9 +57,3 @@ else
         }
     }
 }
-
-@*http://www.macoratti.net/20/07/blz_awebapi1.htm tutorial utilizado para consumir api*@
-@*https://www.bootdey.com/snippets/view/Gradients-dashboard-cards#css componente do card*@
-@*https://blazor.radzen.com/dashboard outros componentes*@
-@*https://useiconic.com/open icones utilizados*@
-@*https://www.nicesnippets.com/snippet/admin-panel-dashboard-card-design-usign-html-and-css cards*@

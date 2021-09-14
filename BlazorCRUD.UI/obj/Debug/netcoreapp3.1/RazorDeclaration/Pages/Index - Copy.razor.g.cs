@@ -89,6 +89,27 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index - Copy.razor"
+using Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index - Copy.razor"
+using Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index - Copy.razor"
+using System.Threading;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index___Copy : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -97,6 +118,92 @@ using Radzen.Blazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 123 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index - Copy.razor"
+       
+
+    GraficoBarra atualizados = new GraficoBarra();
+    GraficoBarra atualizados24hrs = new GraficoBarra();
+    GraficoBarra desatualizados = new GraficoBarra();
+    GraficoBarra desatualizadosMaisDeUmaSemana = new GraficoBarra();
+
+    IEnumerable<Prefeitura> filtro;
+
+    private IEnumerable<Prefeitura> prefeituras;
+    private IEnumerable<Grafico> grafico;
+    private IEnumerable<Grafico> prefeiturasAtualizadas;
+    private IEnumerable<Grafico> prefeiturasAtualizadas24hrs;
+    private IEnumerable<Grafico> prefeiturasDesatualizadas;
+    private IEnumerable<Grafico> prefeiturasDesatualizadasMaisDeUmaSemana;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        try
+        {
+            prefeituras = await PrefeituraServico.TodasPrefeituras();
+            grafico = await GraficoServico.PreencherDados();
+            prefeiturasAtualizadas = await GraficoServico.PrefeiturasAtualizadas();
+            prefeiturasAtualizadas24hrs = await GraficoServico.PrefeiturasAtualizadasUltimas24hrs();
+            prefeiturasDesatualizadas = await GraficoServico.PrefeiturasDesatualizadas();
+            prefeiturasDesatualizadasMaisDeUmaSemana = await GraficoServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
+
+            inserirDadosCards(prefeituras);
+            filtro = await PrefeituraServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
+
+            //var timer = new Timer(new TimerCallback(_ =>
+            //{
+            //    uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            //}), null, 20000, 20000);
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+
+    public void inserirDadosCards(IEnumerable<Prefeitura> prefeituras)
+    {
+        double prefeiturasAtualizadas = 0,
+            prefeiturasAtualizadasUltimas24hrs = 0,
+            prefeiturasDesatualizadas = 0,
+            prefeiturasDesatualizadasMaisDeUmaSemana = 0;
+
+        foreach (var item in prefeituras)
+        {
+            switch (item.situacao)
+            {
+                case "1":
+                    prefeiturasAtualizadas++;
+                    item.situacao = "Atualizada";
+                    break;
+                case "2":
+                    prefeiturasAtualizadasUltimas24hrs++;
+                    item.situacao = "Atualizada nas últimas 24 horas";
+                    break;
+                case "3":
+                    prefeiturasDesatualizadas++;
+                    item.situacao = "Desatualizada";
+                    break;
+                case "4":
+                    prefeiturasDesatualizadasMaisDeUmaSemana++;
+                    item.situacao = "Desatualizada a mais de uma semana";
+                    break;
+            }
+        }
+        atualizados.valores = prefeiturasAtualizadas;
+        atualizados24hrs.valores = prefeiturasAtualizadasUltimas24hrs;
+        desatualizados.valores = prefeiturasDesatualizadas;
+        desatualizadosMaisDeUmaSemana.valores = prefeiturasDesatualizadasMaisDeUmaSemana;
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager uriHelper { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
 }
 #pragma warning restore 1591

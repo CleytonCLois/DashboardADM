@@ -90,21 +90,21 @@ using Radzen.Blazor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasDesatualizadas.razor"
+#line 2 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\ExemploList - Copy.razor"
 using Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasDesatualizadas.razor"
+#line 3 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\ExemploList - Copy.razor"
 using Interfaces;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/PrefeiturasDesatualizadas")]
-    public partial class PrefeiturasDesatualizadas : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/filmlist")]
+    public partial class ExemploList___Copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -112,33 +112,28 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 40 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasDesatualizadas.razor"
-       
+#line 41 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\ExemploList - Copy.razor"
+        
+	
+	private IEnumerable<Exemplo> films;
 
-    IEnumerable<Prefeitura> filtro;
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			films = await ExemploService.GetAllExemplos();
+		}
+		catch (Exception e)
+		{
+			throw;
+		}
+	}
 
-    private IEnumerable<Prefeitura> prefeituras;
-
-    protected override async Task OnInitializedAsync()
-    {
-
-        try
-        {
-            prefeituras = await PrefeituraServico.PrefeiturasDesatualizadas();
-            filtro = prefeituras;
-        }
-        catch (Exception e)
-        {
-            throw;
-        }
-    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IExemploService ExemploService { get; set; }
     }
 }
 #pragma warning restore 1591
