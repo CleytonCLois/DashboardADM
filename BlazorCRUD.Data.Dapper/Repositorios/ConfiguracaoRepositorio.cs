@@ -1,26 +1,37 @@
-﻿using BlazorCRUD.Model;
-using Dapper;
-using System;
-using System.Data.SqlClient;
-using System.Threading.Tasks;
-
-namespace BlazorCRUD.Data.Dapper.Repositorios
+﻿namespace BlazorCRUD.Data.Dapper.Repositorios
 {
+    #region " Usings "
+
+    using BlazorCRUD.Model;
+    using global::Dapper;
+    using System;
+    using System.Data.SqlClient;
+    using System.Threading.Tasks;
+
+    #endregion
+
+    #region " ConfiguracaoRepositorio "
+
     public class ConfiguracaoRepositorio : IConfiguracaoRepositorio
 	{
-		private string _connectionString;
+        #region " Conexão "
+
+        private string _connectionString;
 
 		public ConfiguracaoRepositorio(string connectionString)
 		{
 			_connectionString = "server=localhost; database=PSG; uid=sa; pwd=3464241; Pooling=true; Min Pool Size=10; Max Pool Size=100; Connect Timeout=60";
 		}
-
-		protected SqlConnection dbConnection()
+        protected SqlConnection dbConnection()
 		{
 			return new SqlConnection(_connectionString);
 		}
 
-		public int ConfiguracaoAtual()
+        #endregion
+
+        #region " Funções/Consultas "
+
+        public int ConfiguracaoAtual()
 		{
 			try
 			{
@@ -49,5 +60,9 @@ namespace BlazorCRUD.Data.Dapper.Repositorios
 				throw;
 			}
         }
+
+        #endregion
     }
+
+    #endregion
 }

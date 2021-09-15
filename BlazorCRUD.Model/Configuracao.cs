@@ -4,7 +4,7 @@
 
     public class Configuracao
     {
-        public int tempoAtualizacao { get; set; } // Tempo que a página atualiza
+        public int tempoAtualizacao { get; set; } // tempoAtualizacao (Tempo que a página atualiza)
     }
 
     #endregion

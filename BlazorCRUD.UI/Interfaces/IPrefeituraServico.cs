@@ -12,7 +12,9 @@
 
     public interface IPrefeituraServico
 	{
-		Task<IEnumerable<Prefeitura>> TodasPrefeituras();
+        #region " Funções "
+
+        Task<IEnumerable<Prefeitura>> TodasPrefeituras();
 
 		Task<IEnumerable<Prefeitura>> PrefeiturasAtualizadas();
 
@@ -21,7 +23,9 @@
 		Task<IEnumerable<Prefeitura>> PrefeiturasDesatualizadas();
 
 		Task<IEnumerable<Prefeitura>> PrefeiturasDesatualizadasMaisDeUmaSemana();
-	}
+
+        #endregion
+    }
 
     #endregion
 }

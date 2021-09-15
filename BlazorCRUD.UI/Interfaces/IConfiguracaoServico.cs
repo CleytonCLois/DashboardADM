@@ -1,13 +1,24 @@
-﻿using BlazorCRUD.Model;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace BlazorCRUD.UI.Interfaces
+﻿namespace BlazorCRUD.UI.Interfaces
 {
+    #region " Usings "
+
+    using BlazorCRUD.Model;
+    using System.Threading.Tasks;
+
+    #endregion
+
+    #region " IConfiguracaoServico "
+
     public interface IConfiguracaoServico
 	{
-		int ConfiguracaoAtual();
+        #region " Funções "
+
+        int ConfiguracaoAtual();
 		
 		Task<bool> UpdateConfiguracao(Configuracao configuracao);
-	}
+
+        #endregion
+    }
+
+    #endregion
 }

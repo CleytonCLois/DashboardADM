@@ -1,12 +1,10 @@
 ﻿namespace BlazorCRUD.UI.Interfaces
 {
-	#region " Usings "
+    #region " Usings "
 
-	using BlazorCRUD.Model;
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Threading.Tasks;
+    using BlazorCRUD.Model;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     #endregion
 

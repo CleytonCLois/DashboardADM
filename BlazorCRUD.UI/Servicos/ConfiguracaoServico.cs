@@ -1,14 +1,22 @@
-﻿using BlazorCRUD.Data.Dapper.Repositorios;
-using BlazorCRUD.Model;
-using BlazorCRUD.UI.Data;
-using BlazorCRUD.UI.Interfaces;
-using System.Threading.Tasks;
-
-namespace BlazorCRUD.UI.Servicos
+﻿namespace BlazorCRUD.UI.Servicos
 {
+	#region " Usings "
+
+	using BlazorCRUD.Data.Dapper.Repositorios;
+	using BlazorCRUD.Model;
+	using BlazorCRUD.UI.Data;
+	using BlazorCRUD.UI.Interfaces;
+	using System.Threading.Tasks;
+
+    #endregion
+
+    #region " ConfiguracaoServico "
+
     public class ConfiguracaoServico : IConfiguracaoServico
 	{
-		private readonly SqlConfiguration _configuration;
+        #region " Conexão "
+
+        private readonly SqlConfiguration _configuration;
 
 		private IConfiguracaoRepositorio configuracaoRepositorio;
 
@@ -18,7 +26,11 @@ namespace BlazorCRUD.UI.Servicos
 			configuracaoRepositorio = new ConfiguracaoRepositorio(configuration.ConnectionString);
 		}
 
-		public int ConfiguracaoAtual()
+        #endregion
+
+        #region " Funções "
+
+        public int ConfiguracaoAtual()
 		{
 			return configuracaoRepositorio.ConfiguracaoAtual();
 		}
@@ -27,5 +39,9 @@ namespace BlazorCRUD.UI.Servicos
         {
 			return configuracaoRepositorio.UpdateConfiguracao(configuracao);
         }
+
+        #endregion
     }
+
+    #endregion
 }
