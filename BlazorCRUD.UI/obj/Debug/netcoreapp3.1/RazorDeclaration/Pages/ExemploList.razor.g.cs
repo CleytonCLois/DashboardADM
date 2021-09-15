@@ -89,21 +89,6 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\ExemploList.razor"
-using Model;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\ExemploList.razor"
-using Interfaces;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/filmlist")]
     public partial class ExemploList : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,29 +96,6 @@ using Interfaces;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 41 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\ExemploList.razor"
-        
-	
-	private IEnumerable<Exemplo> films;
-
-	protected override async Task OnInitializedAsync()
-	{
-		try
-		{
-			films = await ExemploService.GetAllExemplos();
-		}
-		catch (Exception e)
-		{
-			throw;
-		}
-	}
-
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IExemploService ExemploService { get; set; }
     }
 }
 #pragma warning restore 1591

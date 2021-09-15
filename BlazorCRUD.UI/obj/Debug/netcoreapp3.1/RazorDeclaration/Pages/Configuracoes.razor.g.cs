@@ -112,7 +112,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 22 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
+#line 21 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
        
     int? value;
 
@@ -149,7 +149,6 @@ using Interfaces;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IExemploService ExemploService { get; set; }
     }
 }
 #pragma warning restore 1591
