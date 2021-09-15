@@ -90,22 +90,15 @@ using Radzen.Blazor;
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 3 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
 using Model;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
 using Interfaces;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 9 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
-using System.Threading;
 
 #line default
 #line hidden
@@ -119,9 +112,8 @@ using System.Threading;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 123 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 122 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
-
     GraficoBarra atualizados = new GraficoBarra();
     GraficoBarra atualizados24hrs = new GraficoBarra();
     GraficoBarra desatualizados = new GraficoBarra();
@@ -135,6 +127,9 @@ using System.Threading;
     private IEnumerable<Grafico> prefeiturasAtualizadas24hrs;
     private IEnumerable<Grafico> prefeiturasDesatualizadas;
     private IEnumerable<Grafico> prefeiturasDesatualizadasMaisDeUmaSemana;
+
+    [Inject]
+    public NavigationManager navigationManager { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -150,16 +145,17 @@ using System.Threading;
 
             inserirDadosCards(prefeituras);
             filtro = await PrefeituraServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
-
-            //var timer = new Timer(new TimerCallback(_ =>
-            //{
-            //    uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
-            //}), null, 20000, 20000);
+            Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
         }
         catch (Exception e)
         {
             throw;
         }
+    }
+
+    public void AtualizarPagina()
+    {
+        navigationManager.NavigateTo("/PrefeiturasAtualizadas", true);
     }
 
     public void inserirDadosCards(IEnumerable<Prefeitura> prefeituras)
@@ -191,6 +187,7 @@ using System.Threading;
                     break;
             }
         }
+
         atualizados.valores = prefeiturasAtualizadas;
         atualizados24hrs.valores = prefeiturasAtualizadasUltimas24hrs;
         desatualizados.valores = prefeiturasDesatualizadas;
@@ -200,9 +197,9 @@ using System.Threading;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager uriHelper { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguracaoServico ConfiguracaoServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
 }

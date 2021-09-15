@@ -116,11 +116,19 @@ using Interfaces;
        
     int? value;
 
+    Configuracao configuracao = new Configuracao();
+
     double dblValue = 0.0;
+
+    public string teste()
+    {
+        return ConfiguracaoServico.ConfiguracaoAtual().ToString();
+    }
 
     void OnChange(dynamic value, string name)
     {
-        dblValue = value;
+        configuracao.tempoAtualizacao = value;
+        ConfiguracaoServico.UpdateConfiguracao(configuracao);
     }
 
     protected override async Task OnInitializedAsync()
@@ -134,11 +142,11 @@ using Interfaces;
         }
     }
 
-    bool busy;
+    //bool busy;
 
-    void OnClick(string buttonName)
-    {
-    }
+    //void OnClick(string buttonName)
+    //{
+    //}
 
     //async Task OnBusyClick()
     //{
@@ -149,6 +157,7 @@ using Interfaces;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguracaoServico ConfiguracaoServico { get; set; }
     }
 }
 #pragma warning restore 1591

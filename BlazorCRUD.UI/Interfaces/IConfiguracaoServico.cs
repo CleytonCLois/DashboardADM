@@ -6,7 +6,7 @@ namespace BlazorCRUD.UI.Interfaces
 {
     public interface IConfiguracaoServico
 	{
-		Task<IEnumerable<Configuracao>> TodasConfiguracoes();
+		int ConfiguracaoAtual();
 		
 		Task<bool> UpdateConfiguracao(Configuracao configuracao);
 	}

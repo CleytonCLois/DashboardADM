@@ -2,7 +2,6 @@
 using BlazorCRUD.Model;
 using BlazorCRUD.UI.Data;
 using BlazorCRUD.UI.Interfaces;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BlazorCRUD.UI.Servicos
@@ -19,9 +18,9 @@ namespace BlazorCRUD.UI.Servicos
 			configuracaoRepositorio = new ConfiguracaoRepositorio(configuration.ConnectionString);
 		}
 
-		public Task<IEnumerable<Configuracao>> TodasConfiguracoes()
+		public int ConfiguracaoAtual()
 		{
-			return configuracaoRepositorio.TodasConfiguracoes();
+			return configuracaoRepositorio.ConfiguracaoAtual();
 		}
 
         public Task<bool> UpdateConfiguracao(Configuracao configuracao)

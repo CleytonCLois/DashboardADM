@@ -6,7 +6,7 @@ namespace BlazorCRUD.Data.Dapper.Repositorios
 {
     public interface IConfiguracaoRepositorio
 	{
-		Task<IEnumerable<Configuracao>> TodasConfiguracoes();
+		int ConfiguracaoAtual();
 	
 		Task<bool> UpdateConfiguracao(Configuracao configuracao);
 	}

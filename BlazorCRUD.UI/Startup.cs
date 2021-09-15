@@ -28,6 +28,7 @@ namespace BlazorCRUD.UI
 			//services.AddScoped<IExemploService, ExemploService>();
 			services.AddScoped<IPrefeituraServico, PrefeituraServico>();
 			services.AddScoped<IGraficoServico, GraficoServico>();
+			services.AddScoped<IConfiguracaoServico, ConfiguracaoServico>();
 			services.AddSingleton<HttpClient>();
 
 			var sqlConnectionConfiguration = new SqlConfiguration(Configuration.GetConnectionString("SqlConnection"));

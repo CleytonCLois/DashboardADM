@@ -1,17 +1,17 @@
 ﻿@page "/Configuracoes"
 @using Model
 @using Interfaces
+@inject IConfiguracaoServico ConfiguracaoServico
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card">                          
+        <div class="card">
             <h5 class="card-header">Configurações das páginas</h5>
             <div class="card-body">
                 <div class="col-xl-6">
-                    <RadzenNumeric TValue="int" Change=@(args => OnChange(args, "Numeric")) />
+                    <RadzenNumeric TValue="int" Format="@teste()" Change=@(args => OnChange(args, "Numeric")) />
                 </div>
                 <div class="col-xl-6" style="margin-top:10px">
-                    <RadzenButton style="margin: 0 1rem 1rem 0; width: 210px" Icon="save" BusyText="Salvando ..." IsBusy=@busy @*Click=@OnBusyClick*@ Text="Salvar" />
                 </div>
             </div>
         </div>
@@ -21,11 +21,19 @@
 @code {
     int? value;
 
+    Configuracao configuracao = new Configuracao();
+
     double dblValue = 0.0;
+
+    public string teste()
+    {
+        return ConfiguracaoServico.ConfiguracaoAtual().ToString();
+    }
 
     void OnChange(dynamic value, string name)
     {
-        dblValue = value;
+        configuracao.tempoAtualizacao = value;
+        ConfiguracaoServico.UpdateConfiguracao(configuracao);
     }
 
     protected override async Task OnInitializedAsync()
@@ -39,11 +47,11 @@
         }
     }
 
-    bool busy;
+    //bool busy;
 
-    void OnClick(string buttonName)
-    {
-    }
+    //void OnClick(string buttonName)
+    //{
+    //}
 
     //async Task OnBusyClick()
     //{

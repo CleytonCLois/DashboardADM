@@ -3,8 +3,9 @@
 @inject HttpClient http
 @using Model
 @using Interfaces
-@inject IPrefeituraServico PrefeituraServico
 @inject IGraficoServico GraficoServico
+@inject IPrefeituraServico PrefeituraServico
+@inject IConfiguracaoServico ConfiguracaoServico
 
 @if (prefeituras == null)
 {
@@ -43,16 +44,25 @@ else
 
     private IEnumerable<Prefeitura> prefeituras;
 
+    [Inject]
+    public NavigationManager navigationManager { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         try
         {
             prefeituras = await PrefeituraServico.PrefeiturasDesatualizadas();
             filtro = prefeituras;
+            Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
         }
         catch (Exception e)
         {
             throw;
         }
+    }
+
+    public void AtualizarPagina()
+    {
+        navigationManager.NavigateTo("/PrefeiturasDesatualizadasMaisDeUmaSemana", true);
     }
 }
