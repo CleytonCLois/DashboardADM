@@ -16,7 +16,6 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Mo
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\bin\Debug\netcoreapp3.1\BlazorCRUD.Model.runtimeconfig.dev.json
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\bin\Debug\netcoreapp3.1\BlazorCRUD.Model.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\bin\Debug\netcoreapp3.1\BlazorCRUD.Model.pdb
-C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.csproj.AssemblyReference.cache
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.AssemblyInfoInputs.cache
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.AssemblyInfo.cs
