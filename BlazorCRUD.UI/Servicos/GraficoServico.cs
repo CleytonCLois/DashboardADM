@@ -36,28 +36,13 @@
 			return _GraficoRepositorio.PreencherDados();
 		}
 
-		public Task<List<Grafico>> PrefeiturasAtualizadas()
+		public Task<IEnumerable<Grafico>> DadosPrefeituraGrafico(int situacao)
 		{
-			return _GraficoRepositorio.PrefeiturasAtualizadas();
+			return _GraficoRepositorio.DadosPrefeituraGrafico(situacao);
 		}
 
-		public Task<List<Grafico>> PrefeiturasAtualizadasUltimas24hrs()
-		{
-			return _GraficoRepositorio.PrefeiturasAtualizadasUltimas24hrs();
-		}
+		#endregion
+	}
 
-		public Task<List<Grafico>> PrefeiturasDesatualizadas()
-		{
-			return _GraficoRepositorio.PrefeiturasDesatualizadas();
-		}
-
-		public Task<List<Grafico>> PrefeiturasDesatualizadasMaisDeUmaSemana()
-		{
-			return _GraficoRepositorio.PrefeiturasDesatualizadasMaisDeUmaSemana();
-		}
-
-        #endregion
-    }
-
-    #endregion
+	#endregion
 }

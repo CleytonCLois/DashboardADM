@@ -17,15 +17,9 @@
 
         Task<List<Grafico>> PreencherDados();
 
-		Task<List<Grafico>> PrefeiturasAtualizadas();
+        Task<IEnumerable<Grafico>> DadosPrefeituraGrafico(int situacao);
 
-		Task<List<Grafico>> PrefeiturasAtualizadasUltimas24hrs();
-
-		Task<List<Grafico>> PrefeiturasDesatualizadas();
-
-		Task<List<Grafico>> PrefeiturasDesatualizadasMaisDeUmaSemana();
-        
-		#endregion
+        #endregion
     }
 
     #endregion

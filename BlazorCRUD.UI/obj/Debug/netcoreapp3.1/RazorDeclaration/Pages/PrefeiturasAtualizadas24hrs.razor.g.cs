@@ -126,7 +126,7 @@ using Interfaces;
     {
         try
         {
-            prefeituras = await PrefeituraServico.PrefeiturasAtualizadas24Horas();
+            prefeituras = await PrefeituraServico.ListaDePrefeituras(2);
             filtro = prefeituras;
             Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
         }

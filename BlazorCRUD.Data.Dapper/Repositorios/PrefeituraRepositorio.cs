@@ -51,34 +51,6 @@
 			return await db.QueryAsync<Prefeitura>(sql, new { });
 		}
 
-		public async Task<IEnumerable<Prefeitura>> PrefeiturasAtualizadas24Horas()
-		{
-			var db = dbConnection();
-
-			var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], UltimaAtualizacao, CASE WHEN Situacao = 2 THEN 'Atualizada nas últimas 24Hrs' END [Situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = 2";
-
-			return await db.QueryAsync<Prefeitura>(sql, new { });
-		}
-
-		public async Task<IEnumerable<Prefeitura>> PrefeiturasDesatualizadas()
-		{
-			var db = dbConnection();
-
-			var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], UltimaAtualizacao, CASE WHEN Situacao = 3 THEN 'Desatualizada' END [Situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = 3";
-
-			return await db.QueryAsync<Prefeitura>(sql, new { });
-		}
-
-		public async Task<IEnumerable<Prefeitura>> PrefeiturasDesatualizadasMaisDeUmaSemana()
-		{
-			var db = dbConnection();
-
-			var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], UltimaAtualizacao, CASE WHEN Situacao = 4 THEN 'Desatualizadas por mais de uma semana' END [Situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = 7";
-			//var teste = await db.QueryAsync<Prefeitura>(sql, new { });
-
-			return await db.QueryAsync<Prefeitura>(sql, new { });
-		}
-
 		public async Task<IEnumerable<Prefeitura>> ListaDePrefeituras(int situacao)
 		{
 			try

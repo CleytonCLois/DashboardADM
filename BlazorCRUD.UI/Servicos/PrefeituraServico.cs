@@ -41,26 +41,10 @@
 			return _PrefeituraRepositorio.PrefeiturasAtualizadas();
 		}
 
-		public Task<IEnumerable<Prefeitura>> PrefeiturasAtualizadas24Horas()
-		{
-			return _PrefeituraRepositorio.PrefeiturasAtualizadas24Horas();
-		}
-
-		public Task<IEnumerable<Prefeitura>> PrefeiturasDesatualizadas()
-		{
-			return _PrefeituraRepositorio.PrefeiturasDesatualizadas();
-		}
-
-		public Task<IEnumerable<Prefeitura>> PrefeiturasDesatualizadasMaisDeUmaSemana()
-		{
-			return _PrefeituraRepositorio.PrefeiturasDesatualizadasMaisDeUmaSemana();
-		}
-
 		public Task<IEnumerable<Prefeitura>> ListaDePrefeituras(int situacao)
 		{
 			return _PrefeituraRepositorio.ListaDePrefeituras(situacao);
 		}
-
 
 		#endregion
 	}

@@ -139,10 +139,10 @@ using Interfaces;
         {
             prefeituras = await PrefeituraServico.TodasPrefeituras();
             grafico = await GraficoServico.PreencherDados();
-            prefeiturasAtualizadas = await GraficoServico.PrefeiturasAtualizadas();
-            prefeiturasAtualizadas24hrs = await GraficoServico.PrefeiturasAtualizadasUltimas24hrs();
-            prefeiturasDesatualizadas = await GraficoServico.PrefeiturasDesatualizadas();
-            prefeiturasDesatualizadasMaisDeUmaSemana = await GraficoServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
+            prefeiturasAtualizadas = await GraficoServico.DadosPrefeituraGrafico(1);
+            prefeiturasAtualizadas24hrs = await GraficoServico.DadosPrefeituraGrafico(2);
+            prefeiturasDesatualizadas = await GraficoServico.DadosPrefeituraGrafico(3);
+            prefeiturasDesatualizadasMaisDeUmaSemana = await GraficoServico.DadosPrefeituraGrafico(4);
 
             inserirDadosCards(prefeituras);
             filtro = await VerificarDados();
@@ -163,23 +163,9 @@ using Interfaces;
 
         var teste = PrefeituraServico.ListaDePrefeituras(1);
 
-        var teste2 = await PrefeituraServico.PrefeiturasAtualizadas24Horas();
+        var teste2 = await PrefeituraServico.PrefeiturasAtualizadas();
 
         return teste2;
-        //if (PrefeituraServico.PrefeiturasDesatualizadasMaisDeUmaSemana() == null) {
-        //    return await PrefeituraServico.PrefeiturasDesatualizadas();
-        //}
-        //else if(PrefeituraServico.PrefeiturasDesatualizadas() == null) {
-        //    return await PrefeituraServico.PrefeiturasAtualizadas24Horas();
-        //}
-        //else if (PrefeituraServico.PrefeiturasAtualizadas24Horas() == null)
-        //{
-        //    return await PrefeituraServico.PrefeiturasAtualizadas();
-        //}
-        //else
-        //{
-        //    return await PrefeituraServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
-        //}
     }
 
     public void inserirDadosCards(IEnumerable<Prefeitura> prefeituras)

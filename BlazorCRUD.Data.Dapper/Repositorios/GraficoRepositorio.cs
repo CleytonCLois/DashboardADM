@@ -4,6 +4,7 @@
 
     using BlazorCRUD.Model;
     using global::Dapper;
+    using System;
     using System.Collections.Generic;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
@@ -41,44 +42,23 @@
 			return (List<Grafico>)await db.QueryAsync<Grafico>(sql, new { });
 		}
 
-		public async Task<List<Grafico>> PrefeiturasAtualizadas()
+		public async Task<IEnumerable<Grafico>> DadosPrefeituraGrafico(int situacao)
 		{
-			var db = dbConnection();
-
-			var sql = "SELECT CASE WHEN Situacao = 1 THEN 'Prefeituras Atualizadas' END [texto], COUNT(PRF_Tid)[valores] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = 1 GROUP BY Situacao";
-
-			return (List<Grafico>)await db.QueryAsync<Grafico>(sql, new { });
+			try
+			{
+				var db = dbConnection();
+				var sql = "SELECT	CASE WHEN @Situacao = 1 THEN 'Prefeituras Atualizadas' WHEN @Situacao = 2 THEN 'Prefeituras Atualizadas Últimas 24hrs' WHEN @Situacao = 3 THEN 'Prefeituras Desatualizadas' WHEN @Situacao = 4 THEN 'Prefeituras Por mais de Uma Semana' END [texto], COUNT(PRF_Tid)[valores] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = @Situacao GROUP BY Situacao";
+				var result = await db.QueryAsync<Grafico>(sql, new { situacao });
+				return result;
+			}
+			catch (Exception e)
+			{
+				throw;
+			}
 		}
 
-		public async Task<List<Grafico>> PrefeiturasAtualizadasUltimas24hrs()
-		{
-			var db = dbConnection();
+		#endregion
+	}
 
-			var sql = "SELECT CASE WHEN Situacao = 2 THEN 'Prefeituras Atualizadas Últimas 24hrs' END [texto], COUNT(PRF_Tid)[valores] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = 2 GROUP BY Situacao";
-
-			return (List<Grafico>)await db.QueryAsync<Grafico>(sql, new { });
-		}
-
-		public async Task<List<Grafico>> PrefeiturasDesatualizadas()
-		{
-			var db = dbConnection();
-
-			var sql = "SELECT CASE WHEN Situacao = 3 THEN 'Prefeituras Desatualizadas' END [texto], COUNT(PRF_Tid)[valores] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = 3 GROUP BY Situacao";
-
-			return (List<Grafico>)await db.QueryAsync<Grafico>(sql, new { });
-		}
-
-		public async Task<List<Grafico>> PrefeiturasDesatualizadasMaisDeUmaSemana()
-		{
-			var db = dbConnection();
-
-			var sql = "SELECT CASE WHEN Situacao = 4 THEN 'Prefeituras Por mais de Uma Semana' END [texto], COUNT(PRF_Tid)[valores] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = 4 GROUP BY Situacao";
-
-			return (List<Grafico>)await db.QueryAsync<Grafico>(sql, new { });
-		}
-
-        #endregion
-    }
-
-    #endregion
+	#endregion
 }
