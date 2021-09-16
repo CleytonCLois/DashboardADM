@@ -56,8 +56,14 @@
 			return _PrefeituraRepositorio.PrefeiturasDesatualizadasMaisDeUmaSemana();
 		}
 
-        #endregion
-    }
+		public Task<IEnumerable<Prefeitura>> ListaDePrefeituras(int situacao)
+		{
+			return _PrefeituraRepositorio.ListaDePrefeituras(situacao);
+		}
+
+
+		#endregion
+	}
 
     #endregion
 }

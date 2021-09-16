@@ -24,8 +24,10 @@
 
 		Task<IEnumerable<Prefeitura>> PrefeiturasDesatualizadasMaisDeUmaSemana();
 
-        #endregion
-    }
+		Task<IEnumerable<Prefeitura>> ListaDePrefeituras(int situacao);
 
-    #endregion
+		#endregion
+	}
+
+	#endregion
 }

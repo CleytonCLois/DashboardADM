@@ -114,6 +114,7 @@ using Interfaces;
 #nullable restore
 #line 122 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
+
     GraficoBarra atualizados = new GraficoBarra();
     GraficoBarra atualizados24hrs = new GraficoBarra();
     GraficoBarra desatualizados = new GraficoBarra();
@@ -144,7 +145,7 @@ using Interfaces;
             prefeiturasDesatualizadasMaisDeUmaSemana = await GraficoServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
 
             inserirDadosCards(prefeituras);
-            filtro = await PrefeituraServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
+            filtro = await VerificarDados();
             Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
         }
         catch (Exception e)
@@ -156,6 +157,29 @@ using Interfaces;
     public void AtualizarPagina()
     {
         navigationManager.NavigateTo("/PrefeiturasAtualizadas", true);
+    }
+
+    public async Task<IEnumerable<Prefeitura>> VerificarDados() {
+
+        var teste = PrefeituraServico.ListaDePrefeituras(1);
+
+        var teste2 = await PrefeituraServico.PrefeiturasAtualizadas24Horas();
+
+        return teste2;
+        //if (PrefeituraServico.PrefeiturasDesatualizadasMaisDeUmaSemana() == null) {
+        //    return await PrefeituraServico.PrefeiturasDesatualizadas();
+        //}
+        //else if(PrefeituraServico.PrefeiturasDesatualizadas() == null) {
+        //    return await PrefeituraServico.PrefeiturasAtualizadas24Horas();
+        //}
+        //else if (PrefeituraServico.PrefeiturasAtualizadas24Horas() == null)
+        //{
+        //    return await PrefeituraServico.PrefeiturasAtualizadas();
+        //}
+        //else
+        //{
+        //    return await PrefeituraServico.PrefeiturasDesatualizadasMaisDeUmaSemana();
+        //}
     }
 
     public void inserirDadosCards(IEnumerable<Prefeitura> prefeituras)
