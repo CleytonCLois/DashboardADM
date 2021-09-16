@@ -160,12 +160,7 @@ using Interfaces;
     }
 
     public async Task<IEnumerable<Prefeitura>> VerificarDados() {
-
-        var teste = PrefeituraServico.ListaDePrefeituras(1);
-
-        var teste2 = await PrefeituraServico.PrefeiturasAtualizadas();
-
-        return teste2;
+        return await PrefeituraServico.ListaDePrefeituras(4);
     }
 
     public void inserirDadosCards(IEnumerable<Prefeitura> prefeituras)

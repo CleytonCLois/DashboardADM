@@ -40,8 +40,8 @@
 				int tempoAtualizacao = db.QueryFirstOrDefault<int>(sql, new { });
 				return tempoAtualizacao;
 			}
-			catch (Exception e)
-			{
+			catch (Exception)
+            {
 				throw;
 			}
 		}
@@ -55,7 +55,7 @@
 				var result = await db.ExecuteAsync(sql, new { configuracao.tempoAtualizacao });
 				return result > 0;
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				throw;
 			}
