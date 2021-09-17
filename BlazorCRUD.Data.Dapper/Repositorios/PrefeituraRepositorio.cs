@@ -43,34 +43,25 @@
 			return await db.QueryAsync<Prefeitura>(sql, new { });
 		}
 
-		public async Task<IEnumerable<Prefeitura>> PrefeiturasAtualizadas()
-		{
-			var db = dbConnection();
-
-			var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], UltimaAtualizacao, CASE WHEN Situacao = 1 THEN 'Atualizada' END [Situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = 1";
-
-			return await db.QueryAsync<Prefeitura>(sql, new { });
-		}
-
 		public async Task<IEnumerable<Prefeitura>> ListaDePrefeituras(int situacao)
 		{
 			try
 			{
 				var db = dbConnection();
-				var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], UltimaAtualizacao, CASE WHEN Situacao = 1 THEN 'Atualizada' WHEN Situacao = 2 THEN 'Atualizada nas últimas 24hrs' WHEN Situacao = 3 THEN 'Desatualizada' WHEN Situacao = 4 THEN 'Desatualizada por mais de uma semana' END [Situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = @Situacao";
+				var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], FORMAT(UltimaAtualizacao, 'dd/MM/yyyy hh:mm:ss')[ultimaAtualizacao], CASE WHEN Situacao = 1 THEN 'Atualizada' WHEN Situacao = 2 THEN 'Atualizada nas últimas 24hrs' WHEN Situacao = 3 THEN 'Desatualizada' WHEN Situacao = 4 THEN 'Desatualizada por mais de uma semana' END [Situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = @Situacao";
 				var result = await db.QueryAsync<Prefeitura>(sql, new { situacao });
 
                 if (situacao == 4 && result.Count() == 0)
                 {
-					ListaDePrefeituras(3);
+					await ListaDePrefeituras(3);
                 }
 				if(situacao == 3 && result.Count() == 0)
                 {
-					ListaDePrefeituras(2);
+                    await ListaDePrefeituras(2);
                 }
 				if(situacao == 2 && result.Count() == 0)
                 {
-					ListaDePrefeituras(1);
+                    await ListaDePrefeituras(1);
                 }
                 return result;
 			}

@@ -112,9 +112,8 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 122 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 135 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
-
     GraficoBarra atualizados = new GraficoBarra();
     GraficoBarra atualizados24hrs = new GraficoBarra();
     GraficoBarra desatualizados = new GraficoBarra();
@@ -158,7 +157,8 @@ using Interfaces;
         navigationManager.NavigateTo("/PrefeiturasAtualizadas", true);
     }
 
-    public async Task<IEnumerable<Prefeitura>> VerificarDados() {
+    public async Task<IEnumerable<Prefeitura>> VerificarDados()
+    {
         return await PrefeituraServico.ListaDePrefeituras(4);
     }
 
@@ -200,7 +200,7 @@ using Interfaces;
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguracaoServico ConfiguracaoServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient https { get; set; }
     }
 }
 #pragma warning restore 1591

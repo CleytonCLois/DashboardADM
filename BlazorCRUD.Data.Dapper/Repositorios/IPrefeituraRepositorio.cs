@@ -18,8 +18,6 @@
 
         Task<IEnumerable<Prefeitura>> TodasPrefeituras();
 
-		Task<IEnumerable<Prefeitura>> PrefeiturasAtualizadas();
-
 		Task<IEnumerable<Prefeitura>> ListaDePrefeituras(int situacao);
 
 		#endregion

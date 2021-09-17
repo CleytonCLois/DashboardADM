@@ -114,13 +114,12 @@ using Interfaces;
 #nullable restore
 #line 21 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
        
+
     int? value;
 
     Configuracao configuracao = new Configuracao();
 
-    double dblValue = 0.0;
-
-    public string teste()
+    public string RetornarConfiguracaoAtual()
     {
         return ConfiguracaoServico.ConfiguracaoAtual().ToString();
     }
@@ -133,26 +132,14 @@ using Interfaces;
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-        }
-        catch (Exception e)
-        {
-            throw;
-        }
+        //try
+        //{
+        //}
+        //catch (Exception e)
+        //{
+        //    throw;
+        //}
     }
-
-    //bool busy;
-
-    //void OnClick(string buttonName)
-    //{
-    //}
-
-    //async Task OnBusyClick()
-    //{
-    //    int teste = 0;
-    //    OnChange(teste, "Numeric");
-    //}
 
 #line default
 #line hidden

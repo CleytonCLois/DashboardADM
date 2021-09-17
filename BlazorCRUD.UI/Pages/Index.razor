@@ -2,7 +2,7 @@
 
 @using Model
 @using Interfaces
-@inject HttpClient http
+@inject HttpClient https
 @inject IGraficoServico GraficoServico
 @inject IPrefeituraServico PrefeituraServico
 @inject IConfiguracaoServico ConfiguracaoServico
@@ -103,14 +103,27 @@ else
             <div class="card">
                 <h5 class="card-header">Lista de Prefeituras</h5>
                 <div class="card-body">
-                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Prefeitura" Style="margin-bottom: 50px;">
+                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Prefeitura" Style="margin-bottom: 50px; color:red;">
                         <Columns>
-                            <RadzenDataGridColumn TItem="Prefeitura" Property="id" Title="ID">
-                            </RadzenDataGridColumn>
+                            <RadzenDataGridColumn TItem="Prefeitura" Property="id" Title="ID" />
                             <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
-                            <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização">
+                            <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização" />
+                            <RadzenDataGridColumn TItem="Prefeitura" Property="situacao" Title="Situação da Prefeitura">
+                                <Template Context="data">
+                                    @if (data.situacao == "Desatualizada por mais de uma semana")
+                                    {
+                                        <span style='color:red'>@data.situacao</span>
+                                    }
+                                    else if (data.situacao == "Desatualizada")
+                                    {
+                                        <span style='color: #ff6d41'>@data.situacao</span>
+                                    }
+                                    else
+                                    {
+                                        <span style='color:#5b707b'>@data.situacao</span>
+                                    }
+                                </Template>
                             </RadzenDataGridColumn>
-                            <RadzenDataGridColumn TItem="Prefeitura" Property="situacao" Title="Situação da Prefeitura" />
                         </Columns>
                     </RadzenDataGrid>
                 </div>
@@ -120,7 +133,6 @@ else
 }
 
 @code {
-
     GraficoBarra atualizados = new GraficoBarra();
     GraficoBarra atualizados24hrs = new GraficoBarra();
     GraficoBarra desatualizados = new GraficoBarra();
@@ -164,7 +176,8 @@ else
         navigationManager.NavigateTo("/PrefeiturasAtualizadas", true);
     }
 
-    public async Task<IEnumerable<Prefeitura>> VerificarDados() {
+    public async Task<IEnumerable<Prefeitura>> VerificarDados()
+    {
         return await PrefeituraServico.ListaDePrefeituras(4);
     }
 

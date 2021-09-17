@@ -36,11 +36,6 @@
 			return _PrefeituraRepositorio.TodasPrefeituras();
 		}
 
-		public Task<IEnumerable<Prefeitura>> PrefeiturasAtualizadas()
-		{
-			return _PrefeituraRepositorio.PrefeiturasAtualizadas();
-		}
-
 		public Task<IEnumerable<Prefeitura>> ListaDePrefeituras(int situacao)
 		{
 			return _PrefeituraRepositorio.ListaDePrefeituras(situacao);
