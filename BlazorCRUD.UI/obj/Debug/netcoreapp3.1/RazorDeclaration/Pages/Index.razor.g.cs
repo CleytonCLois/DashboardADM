@@ -134,7 +134,6 @@ using Interfaces;
 
     protected override async Task OnInitializedAsync()
     {
-
         try
         {
             prefeituras = await PrefeituraServico.TodasPrefeituras();
@@ -148,7 +147,7 @@ using Interfaces;
             filtro = await VerificarDados();
             Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
         }
-        catch (Exception e)
+        catch (Exception)
         {
             throw;
         }
@@ -176,19 +175,15 @@ using Interfaces;
             {
                 case "1":
                     prefeiturasAtualizadas++;
-                    item.situacao = "Atualizada";
                     break;
                 case "2":
                     prefeiturasAtualizadasUltimas24hrs++;
-                    item.situacao = "Atualizada nas últimas 24 horas";
                     break;
                 case "3":
                     prefeiturasDesatualizadas++;
-                    item.situacao = "Desatualizada";
                     break;
                 case "4":
                     prefeiturasDesatualizadasMaisDeUmaSemana++;
-                    item.situacao = "Desatualizada a mais de uma semana";
                     break;
             }
         }
