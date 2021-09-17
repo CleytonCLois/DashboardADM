@@ -132,13 +132,7 @@ using Interfaces;
 
     protected override async Task OnInitializedAsync()
     {
-        //try
-        //{
-        //}
-        //catch (Exception e)
-        //{
-        //    throw;
-        //}
+
     }
 
 #line default

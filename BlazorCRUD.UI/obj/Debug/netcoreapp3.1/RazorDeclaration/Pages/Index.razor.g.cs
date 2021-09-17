@@ -112,7 +112,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 135 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 133 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
     GraficoBarra atualizados = new GraficoBarra();
     GraficoBarra atualizados24hrs = new GraficoBarra();
