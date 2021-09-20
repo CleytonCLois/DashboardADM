@@ -14,10 +14,6 @@
 	{
 		#region " Funções "
 
-		Task<List<Grafico>> PreencherDados();
-
-		Task<IEnumerable<Grafico>> DadosPrefeituraGrafico(int situacao);
-
 		#endregion
 	}
 

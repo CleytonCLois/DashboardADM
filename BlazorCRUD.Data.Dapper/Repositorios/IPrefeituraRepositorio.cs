@@ -1,12 +1,10 @@
 ﻿namespace BlazorCRUD.Data.Dapper.Repositorios
 {
-	#region " Usings "
+    #region " Usings "
 
-	using BlazorCRUD.Model;
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-	using System.Threading.Tasks;
+    using BlazorCRUD.Model;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     #endregion
 
@@ -20,8 +18,8 @@
 
 		Task<IEnumerable<Prefeitura>> ListaDePrefeituras(int situacao);
 
-		#endregion
-	}
+        #endregion
+    }
 
     #endregion
 }

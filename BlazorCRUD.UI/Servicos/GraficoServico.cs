@@ -31,16 +31,6 @@
 
         #region " Funções "
 
-        public Task<List<Grafico>> PreencherDados()
-		{
-			return _GraficoRepositorio.PreencherDados();
-		}
-
-		public Task<IEnumerable<Grafico>> DadosPrefeituraGrafico(int situacao)
-		{
-			return _GraficoRepositorio.DadosPrefeituraGrafico(situacao);
-		}
-
 		#endregion
 	}
 

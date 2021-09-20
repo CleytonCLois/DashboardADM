@@ -114,19 +114,25 @@ using Interfaces;
 #nullable restore
 #line 133 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
+
     GraficoBarra atualizados = new GraficoBarra();
     GraficoBarra atualizados24hrs = new GraficoBarra();
     GraficoBarra desatualizados = new GraficoBarra();
     GraficoBarra desatualizadosMaisDeUmaSemana = new GraficoBarra();
 
-    IEnumerable<Prefeitura> filtro;
-
     private IEnumerable<Prefeitura> prefeituras;
-    private IEnumerable<Grafico> grafico;
-    private IEnumerable<Grafico> prefeiturasAtualizadas;
-    private IEnumerable<Grafico> prefeiturasAtualizadas24hrs;
-    private IEnumerable<Grafico> prefeiturasDesatualizadas;
-    private IEnumerable<Grafico> prefeiturasDesatualizadasMaisDeUmaSemana;
+    List<Grafico> graficoCircularPrefeiturasDesatualizadas = new List<Grafico>();
+    List<Grafico> prefeiturasAtualizadas = new List<Grafico>();
+    List<Grafico> prefeiturasAtualizadas24hrs = new List<Grafico>();
+    List<Grafico> prefeiturasDesatualizadas = new List<Grafico>();
+    List<Grafico> prefeiturasDesatualizadasMaisDeUmaSemana = new List<Grafico>();
+
+    double prefeiturasAtualizadasCount = 0,
+    prefeiturasAtualizadasUltimas24hrsCount = 0,
+    prefeiturasDesatualizadasCount = 0,
+    prefeiturasDesatualizadasMaisDeUmaSemanaCount = 0;
+
+    IEnumerable<Prefeitura> filtro;
 
     [Inject]
     public NavigationManager navigationManager { get; set; }
@@ -136,15 +142,10 @@ using Interfaces;
         try
         {
             prefeituras = await PrefeituraServico.TodasPrefeituras();
-            grafico = await GraficoServico.PreencherDados();
-            prefeiturasAtualizadas = await GraficoServico.DadosPrefeituraGrafico(1);
-            prefeiturasAtualizadas24hrs = await GraficoServico.DadosPrefeituraGrafico(2);
-            prefeiturasDesatualizadas = await GraficoServico.DadosPrefeituraGrafico(3);
-            prefeiturasDesatualizadasMaisDeUmaSemana = await GraficoServico.DadosPrefeituraGrafico(4);
+            InserirDados(prefeituras);
 
-            inserirDadosCards(prefeituras);
-            filtro = await VerificarDados();
-            Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
+            filtro = await PreencherTabelaPrincipalPrefeituras(prefeituras);
+            //Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
         }
         catch (Exception)
         {
@@ -157,41 +158,66 @@ using Interfaces;
         navigationManager.NavigateTo("/PrefeiturasAtualizadas", true);
     }
 
-    public async Task<IEnumerable<Prefeitura>> VerificarDados()
+    public async Task<IEnumerable<Prefeitura>> PreencherTabelaPrincipalPrefeituras(IEnumerable<Prefeitura> prefeituras)
+    {
+        List<Prefeitura> listaPrefeituras = new List<Prefeitura>();
+
+        foreach (var item in prefeituras)
+        {
+            if(item.situacao == "4") {
+                item.situacao = "Desatualizada por mais de uma semana";
+                listaPrefeituras.Add(item);
+            }
+            if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+                item.situacao = "Desatualizada";
+                listaPrefeituras.Add(item);
+            }
+            if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+                item.situacao = "Atualizada nas últimas 24hrs";
+                listaPrefeituras.Add(item);
+            }
+            if(item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+                item.situacao = "Atualizada";
+                listaPrefeituras.Add(item);
+            }
+        }
+
+        return listaPrefeituras;
+    }
+
+    public async Task<IEnumerable<Prefeitura>> PreencherTabelaPrefeituras()
     {
         return await PrefeituraServico.ListaDePrefeituras(4);
     }
 
-    public void inserirDadosCards(IEnumerable<Prefeitura> prefeituras)
+    public void InserirDados(IEnumerable<Prefeitura> prefeituras)
     {
-        double prefeiturasAtualizadas = 0,
-            prefeiturasAtualizadasUltimas24hrs = 0,
-            prefeiturasDesatualizadas = 0,
-            prefeiturasDesatualizadasMaisDeUmaSemana = 0;
-
         foreach (var item in prefeituras)
         {
             switch (item.situacao)
             {
                 case "1":
-                    prefeiturasAtualizadas++;
+                    prefeiturasAtualizadasCount++;
                     break;
                 case "2":
-                    prefeiturasAtualizadasUltimas24hrs++;
+                    prefeiturasAtualizadasUltimas24hrsCount++;
                     break;
                 case "3":
-                    prefeiturasDesatualizadas++;
+                    prefeiturasDesatualizadasCount++;
                     break;
                 case "4":
-                    prefeiturasDesatualizadasMaisDeUmaSemana++;
+                    prefeiturasDesatualizadasMaisDeUmaSemanaCount++;
                     break;
             }
         }
 
-        atualizados.valores = prefeiturasAtualizadas;
-        atualizados24hrs.valores = prefeiturasAtualizadasUltimas24hrs;
-        desatualizados.valores = prefeiturasDesatualizadas;
-        desatualizadosMaisDeUmaSemana.valores = prefeiturasDesatualizadasMaisDeUmaSemana;
+        prefeiturasAtualizadas.Add(new Grafico() { texto = "Prefeituras Atualizadas", valores = prefeiturasAtualizadasCount });
+        prefeiturasAtualizadas24hrs.Add(new Grafico() { texto = "Prefeituras Atualizadas Últimas 24hrs", valores = prefeiturasAtualizadasUltimas24hrsCount });
+        prefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Desatualizadas", valores = prefeiturasDesatualizadasCount });
+        prefeiturasDesatualizadasMaisDeUmaSemana.Add(new Grafico() { texto = "Prefeituras Por mais de Uma Semana", valores = prefeiturasDesatualizadasMaisDeUmaSemanaCount });
+
+        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Desatualizadas", valores = prefeiturasDesatualizadasCount });
+        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Por mais de Uma Semana", valores = prefeiturasDesatualizadasMaisDeUmaSemanaCount });
     }
 
 #line default
