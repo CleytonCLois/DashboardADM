@@ -145,7 +145,7 @@ using Autofac;
             InserirDados(prefeituras);
 
             filtro = await PreencherTabelaPrincipalPrefeituras(prefeituras);
-            //Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
+            Task.Delay(1800000).ContinueWith(t => AtualizarPagina());
         }
         catch (Exception)
         {

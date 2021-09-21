@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "ZlnsGfnecdepaCgQ4DteosJLBwD9Ih/SAxTjJE/aM5q9BPPdVb6hdrNVko8tPmcHCL75Zmb72vt8dBCyn/xfnA==",
+  "dgSpecHash": "SawgHVTRHFSnlTkNx5o+/ahd9Npxn6cIyzSQvIEgaK3dPlXNpTkYp6R17cJvByNminQUcJz68vMqKkVBE3rENQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Marcelo\\Desktop\\Pastas\\Dashboard-AdmSistemas\\DashboardADM\\BlazorCRUD.UI\\BlazorCRUD.UI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Marcelo\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
     "C:\\Users\\Marcelo\\.nuget\\packages\\bootstrap\\5.1.0\\bootstrap.5.1.0.nupkg.sha512",

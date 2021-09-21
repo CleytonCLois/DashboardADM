@@ -20,7 +20,6 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\PubTmp\Out\BlazorCRUD.UI.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\PubTmp\Out\BlazorCRUD.UI.runtimeconfig.json
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\PubTmp\Out\BlazorCRUD.UI.pdb
-C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\PubTmp\Out\Autofac.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Core.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\PubTmp\Out\Azure.Identity.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\PubTmp\Out\Dapper.dll

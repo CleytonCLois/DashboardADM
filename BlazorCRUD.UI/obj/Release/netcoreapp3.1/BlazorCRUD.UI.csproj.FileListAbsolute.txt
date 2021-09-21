@@ -224,7 +224,6 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\BlazorCRUD.UI.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\BlazorCRUD.UI.pdb
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\BlazorCRUD.UI.genruntimeconfig.cache
-C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Release\netcoreapp3.1\Autofac.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Configuracoes.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrefeiturasAtualizadas.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\PrefeiturasAtualizadas24hrs.razor.g.cs
