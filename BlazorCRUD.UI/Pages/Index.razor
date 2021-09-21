@@ -2,10 +2,13 @@
 
 @using Model
 @using Interfaces
+@using Microsoft.JSInterop
+@using Autofac;
 @inject HttpClient https
 @inject IGraficoServico GraficoServico
 @inject IPrefeituraServico PrefeituraServico
 @inject IConfiguracaoServico ConfiguracaoServico
+@inject NavigationManager navigationManager
 
 @if (prefeituras == null)
 {
@@ -132,10 +135,6 @@ else
 
 @code {
 
-    GraficoBarra atualizados = new GraficoBarra();
-    GraficoBarra atualizados24hrs = new GraficoBarra();
-    GraficoBarra desatualizados = new GraficoBarra();
-    GraficoBarra desatualizadosMaisDeUmaSemana = new GraficoBarra();
 
     private IEnumerable<Prefeitura> prefeituras;
     List<Grafico> graficoCircularPrefeiturasDesatualizadas = new List<Grafico>();
@@ -151,9 +150,6 @@ else
 
     IEnumerable<Prefeitura> filtro;
 
-    [Inject]
-    public NavigationManager navigationManager { get; set; }
-
     protected override async Task OnInitializedAsync()
     {
         try
@@ -162,7 +158,7 @@ else
             InserirDados(prefeituras);
 
             filtro = await PreencherTabelaPrincipalPrefeituras(prefeituras);
-            //Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
+            Task.Delay(1800000).ContinueWith(t => AtualizarPagina());
         }
         catch (Exception)
         {
@@ -181,30 +177,29 @@ else
 
         foreach (var item in prefeituras)
         {
-            if(item.situacao == "4") {
+            if (item.situacao == "4")
+            {
                 item.situacao = "Desatualizada por mais de uma semana";
                 listaPrefeituras.Add(item);
             }
-            if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+            if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
                 item.situacao = "Desatualizada";
                 listaPrefeituras.Add(item);
             }
-            if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+            if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
                 item.situacao = "Atualizada nas últimas 24hrs";
                 listaPrefeituras.Add(item);
             }
-            if(item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+            if (item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
                 item.situacao = "Atualizada";
                 listaPrefeituras.Add(item);
             }
         }
 
         return listaPrefeituras;
-    }
-
-    public async Task<IEnumerable<Prefeitura>> PreencherTabelaPrefeituras()
-    {
-        return await PrefeituraServico.ListaDePrefeituras(4);
     }
 
     public void InserirDados(IEnumerable<Prefeitura> prefeituras)

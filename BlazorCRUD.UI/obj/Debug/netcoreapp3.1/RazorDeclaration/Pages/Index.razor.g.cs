@@ -55,13 +55,6 @@ using Microsoft.AspNetCore.Components.Web;
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
-using Microsoft.JSInterop;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 8 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using BlazorCRUD.UI;
 
@@ -103,6 +96,20 @@ using Interfaces;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+using Microsoft.JSInterop;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+using Autofac;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -112,13 +119,9 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 133 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 136 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
 
-    GraficoBarra atualizados = new GraficoBarra();
-    GraficoBarra atualizados24hrs = new GraficoBarra();
-    GraficoBarra desatualizados = new GraficoBarra();
-    GraficoBarra desatualizadosMaisDeUmaSemana = new GraficoBarra();
 
     private IEnumerable<Prefeitura> prefeituras;
     List<Grafico> graficoCircularPrefeiturasDesatualizadas = new List<Grafico>();
@@ -133,9 +136,6 @@ using Interfaces;
     prefeiturasDesatualizadasMaisDeUmaSemanaCount = 0;
 
     IEnumerable<Prefeitura> filtro;
-
-    [Inject]
-    public NavigationManager navigationManager { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -164,30 +164,29 @@ using Interfaces;
 
         foreach (var item in prefeituras)
         {
-            if(item.situacao == "4") {
+            if (item.situacao == "4")
+            {
                 item.situacao = "Desatualizada por mais de uma semana";
                 listaPrefeituras.Add(item);
             }
-            if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+            if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
                 item.situacao = "Desatualizada";
                 listaPrefeituras.Add(item);
             }
-            if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+            if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
                 item.situacao = "Atualizada nas últimas 24hrs";
                 listaPrefeituras.Add(item);
             }
-            if(item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0) {
+            if (item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
                 item.situacao = "Atualizada";
                 listaPrefeituras.Add(item);
             }
         }
 
         return listaPrefeituras;
-    }
-
-    public async Task<IEnumerable<Prefeitura>> PreencherTabelaPrefeituras()
-    {
-        return await PrefeituraServico.ListaDePrefeituras(4);
     }
 
     public void InserirDados(IEnumerable<Prefeitura> prefeituras)
@@ -223,6 +222,7 @@ using Interfaces;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguracaoServico ConfiguracaoServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }

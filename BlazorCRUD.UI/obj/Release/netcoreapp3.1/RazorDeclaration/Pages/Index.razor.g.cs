@@ -20,35 +20,35 @@ using System.Net.Http;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+#line 2 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+#line 3 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+#line 6 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
@@ -56,35 +56,56 @@ using Microsoft.AspNetCore.Components.Web;
 #nullable disable
 #nullable restore
 #line 8 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
-using Microsoft.JSInterop;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 9 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using BlazorCRUD.UI;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+#line 9 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using BlazorCRUD.UI.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+#line 10 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+#line 11 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
 using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+using Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+using Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+using Microsoft.JSInterop;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+using Autofac;
 
 #line default
 #line hidden
@@ -97,6 +118,115 @@ using Radzen.Blazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 136 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+       
+
+
+    private IEnumerable<Prefeitura> prefeituras;
+    List<Grafico> graficoCircularPrefeiturasDesatualizadas = new List<Grafico>();
+    List<Grafico> prefeiturasAtualizadas = new List<Grafico>();
+    List<Grafico> prefeiturasAtualizadas24hrs = new List<Grafico>();
+    List<Grafico> prefeiturasDesatualizadas = new List<Grafico>();
+    List<Grafico> prefeiturasDesatualizadasMaisDeUmaSemana = new List<Grafico>();
+
+    double prefeiturasAtualizadasCount = 0,
+    prefeiturasAtualizadasUltimas24hrsCount = 0,
+    prefeiturasDesatualizadasCount = 0,
+    prefeiturasDesatualizadasMaisDeUmaSemanaCount = 0;
+
+    IEnumerable<Prefeitura> filtro;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            prefeituras = await PrefeituraServico.TodasPrefeituras();
+            InserirDados(prefeituras);
+
+            filtro = await PreencherTabelaPrincipalPrefeituras(prefeituras);
+            //Task.Delay(ConfiguracaoServico.ConfiguracaoAtual()).ContinueWith(t => AtualizarPagina());
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    public void AtualizarPagina()
+    {
+        navigationManager.NavigateTo("/PrefeiturasAtualizadas", true);
+    }
+
+    public async Task<IEnumerable<Prefeitura>> PreencherTabelaPrincipalPrefeituras(IEnumerable<Prefeitura> prefeituras)
+    {
+        List<Prefeitura> listaPrefeituras = new List<Prefeitura>();
+
+        foreach (var item in prefeituras)
+        {
+            if (item.situacao == "4")
+            {
+                item.situacao = "Desatualizada por mais de uma semana";
+                listaPrefeituras.Add(item);
+            }
+            if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
+                item.situacao = "Desatualizada";
+                listaPrefeituras.Add(item);
+            }
+            if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
+                item.situacao = "Atualizada nas últimas 24hrs";
+                listaPrefeituras.Add(item);
+            }
+            if (item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
+            {
+                item.situacao = "Atualizada";
+                listaPrefeituras.Add(item);
+            }
+        }
+
+        return listaPrefeituras;
+    }
+
+    public void InserirDados(IEnumerable<Prefeitura> prefeituras)
+    {
+        foreach (var item in prefeituras)
+        {
+            switch (item.situacao)
+            {
+                case "1":
+                    prefeiturasAtualizadasCount++;
+                    break;
+                case "2":
+                    prefeiturasAtualizadasUltimas24hrsCount++;
+                    break;
+                case "3":
+                    prefeiturasDesatualizadasCount++;
+                    break;
+                case "4":
+                    prefeiturasDesatualizadasMaisDeUmaSemanaCount++;
+                    break;
+            }
+        }
+
+        prefeiturasAtualizadas.Add(new Grafico() { texto = "Prefeituras Atualizadas", valores = prefeiturasAtualizadasCount });
+        prefeiturasAtualizadas24hrs.Add(new Grafico() { texto = "Prefeituras Atualizadas Últimas 24hrs", valores = prefeiturasAtualizadasUltimas24hrsCount });
+        prefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Desatualizadas", valores = prefeiturasDesatualizadasCount });
+        prefeiturasDesatualizadasMaisDeUmaSemana.Add(new Grafico() { texto = "Prefeituras Por mais de Uma Semana", valores = prefeiturasDesatualizadasMaisDeUmaSemanaCount });
+
+        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Desatualizadas", valores = prefeiturasDesatualizadasCount });
+        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Por mais de Uma Semana", valores = prefeiturasDesatualizadasMaisDeUmaSemanaCount });
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguracaoServico ConfiguracaoServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient https { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -234,3 +234,4 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\BlazorCRUD.UI.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\BlazorCRUD.UI.pdb
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\netcoreapp3.1\BlazorCRUD.UI.genruntimeconfig.cache
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\netcoreapp3.1\Autofac.dll
