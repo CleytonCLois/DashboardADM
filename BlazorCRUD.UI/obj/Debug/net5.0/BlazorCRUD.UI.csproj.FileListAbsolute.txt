@@ -110,3 +110,5 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\net5.0\ref\BlazorCRUD.UI.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\net5.0\BlazorCRUD.UI.pdb
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\net5.0\BlazorCRUD.UI.genruntimeconfig.cache
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\net5.0\RazorDeclaration\Pages\Logs.razor.g.cs
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\net5.0\Razor\Pages\Logs.razor.g.cs

@@ -25,6 +25,7 @@ namespace BlazorCRUD.UI
 		{
 			services.AddRazorPages();
 			services.AddServerSideBlazor();
+			services.AddScoped<ILogServico, LogServico>();
 			services.AddScoped<IGraficoServico, GraficoServico>();
 			services.AddScoped<IPrefeituraServico, PrefeituraServico>();
 			services.AddScoped<IConfiguracaoServico, ConfiguracaoServico>();

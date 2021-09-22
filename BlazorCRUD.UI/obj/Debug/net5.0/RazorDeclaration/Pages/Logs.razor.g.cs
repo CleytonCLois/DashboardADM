@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorCRUD.UI.Shared
+namespace BlazorCRUD.UI.Pages
 {
     #line hidden
     using System;
@@ -89,7 +89,22 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Logs.razor"
+using Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Logs.razor"
+using Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Logs")]
+    public partial class Logs : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,20 +112,30 @@ using Radzen.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 60 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Shared\NavMenu.razor"
+#line 40 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Logs.razor"
        
-	private bool collapseNavMenu = true;
 
-	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    IEnumerable<Log> filtro;
+    private IEnumerable<Log> logs;
 
-	private void ToggleNavMenu()
-	{
-		collapseNavMenu = !collapseNavMenu;
-	}
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            logs = await LogServico.CarregarDadosLog();
+            filtro = logs;
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILogServico LogServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
 }
 #pragma warning restore 1591

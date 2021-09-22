@@ -1,0 +1,57 @@
+﻿@page "/Logs"
+
+@inject HttpClient http
+@using Model
+@using Interfaces
+@inject ILogServico LogServico
+
+@if (logs == null)
+{
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">ADSIS-01-SQL</h5>
+                <div class="card-body">
+                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Log" Style="margin-bottom: 50px;" >
+                        <Columns>
+                            <RadzenDataGridColumn TItem="Log" Property="Id" Title="ID" />
+                            <RadzenDataGridColumn TItem="Log" Property="DataHoraInicial" Title="Data Hora Inicial" />
+                            <RadzenDataGridColumn TItem="Log" Property="DataHoraFinal" Title="Data Hora Final"  />
+                            <RadzenDataGridColumn TItem="Log" Property="TipoLog" Title="Tipo Log" />
+                            <RadzenDataGridColumn TItem="Log" Property="Notificacao" Title="Notificação" Width="900px"/>
+                            <RadzenDataGridColumn TItem="Log" Property="PrefeituraId" Title="Prefeitura" />
+                            <RadzenDataGridColumn TItem="Log" Property="UsuarioId" Title="Usuário" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    IEnumerable<Log> filtro;
+    private IEnumerable<Log> logs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            logs = await LogServico.CarregarDadosLog();
+            filtro = logs;
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+}

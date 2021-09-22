@@ -52,7 +52,7 @@ else
         <div class="cpanel cpanel-red">
             <div class="icon-part">
                 <i class="fas fa-times-circle" aria-hidden="true"></i><br>
-                <small>Prefeituras desatualizadas por mais de 24Hrs</small>
+                <small>Prefeituras desatualizadas a mais de 24Hrs</small>
                 <p>@prefeiturasDesatualizadasMaisDeUmaSemanaCount</p>
             </div>
             <div class="card-content-part">
@@ -63,29 +63,13 @@ else
     <div class="row">
         <div class="col-md-7">
             <div class="card">
-                <h5 class="card-header">Lista de Prefeituras</h5>
+                <h5 class="card-header">Lista de Prefeituras @teste</h5>
                 <div class="card-body">
                     <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Prefeitura" PageSize="6">
                         <Columns>
                             <RadzenDataGridColumn TItem="Prefeitura" Property="id" Title="ID" />
                             <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
                             <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização" />
-                            @*<RadzenDataGridColumn TItem="Prefeitura" Property="situacao" Title="Situação da Prefeitura">
-                                <Template Context="data">
-                                    @if (data.situacao == "Desatualizada a mais de uma semana")
-                                    {
-                                        <span style='color:red'>@data.situacao</span>
-                                    }
-                                    else if (data.situacao == "Desatualizada")
-                                    {
-                                        <span style='color: #ff6d41'>@data.situacao</span>
-                                    }
-                                    else
-                                    {
-                                        <span style='color:#5b707b'>@data.situacao</span>
-                                    }
-                                </Template>
-                            </RadzenDataGridColumn>*@
                         </Columns>
                     </RadzenDataGrid>
                 </div>
@@ -102,43 +86,6 @@ else
             </div>
         </div>
     </div>
-    @*<div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <h5 class="card-header">Gráfico Barra Prefeituras</h5>
-                <div class="card-body">
-                    <RadzenChart>
-                        <RadzenColumnSeries Data="@prefeiturasAtualizadas" Title="Atualizadas hoje" LineType="LineType.Dashed" ValueProperty="valores" />
-                        <RadzenColumnSeries Data="@prefeiturasAtualizadas24hrs" Title="Atualizadas nas últimas 24hrs" ValueProperty="valores" />
-                        <RadzenColumnSeries Data="@prefeiturasDesatualizadas" Title="Desatualizadas" ValueProperty="valores" />
-                        <RadzenColumnSeries Data="@prefeiturasDesatualizadasMaisDeUmaSemana" Title="Desatualizadas a mais De 1 semana" ValueProperty="valores" />
-                        <RadzenColumnOptions Radius="5" />
-                        <RadzenValueAxis>
-                            <RadzenGridLines Visible="true" />
-                            <RadzenAxisTitle Text="Prefeituras" />
-                        </RadzenValueAxis>
-                    </RadzenChart>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <h5 class="card-header">Gráfico Circular Prefeituras</h5>
-                <div class="card-body">
-                    <RadzenChart>
-                        <RadzenDonutSeries Data="@graficoCircularPrefeiturasDesatualizadas" CategoryProperty="texto" Title="Quantidade de Prefeituras" ValueProperty="valores">
-                            <TitleTemplate>
-                                <div class="rz-donut-content">
-                                    <div>Prefeituras</div>
-                                    <div>Desatualizadas</div>
-                                </div>
-                            </TitleTemplate>
-                        </RadzenDonutSeries>
-                    </RadzenChart>
-                </div>
-            </div>
-        </div>
-    </div>*@
 }
 
 @code {
@@ -154,6 +101,8 @@ else
     prefeiturasAtualizadasUltimas24hrsCount = 0,
     prefeiturasDesatualizadasCount = 0,
     prefeiturasDesatualizadasMaisDeUmaSemanaCount = 0;
+
+    string teste;
 
     IEnumerable<Prefeitura> filtro;
 
@@ -186,23 +135,23 @@ else
         {
             if (item.situacao == "4")
             {
-                item.situacao = "Desatualizada a mais de uma semana";
                 listaPrefeituras.Add(item);
+                teste = "Desatualizadas a mais de uma semana";
             }
             if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Desatualizada";
                 listaPrefeituras.Add(item);
+                teste = "Desatualizadas";
             }
             if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Atualizada nas últimas 24hrs";
                 listaPrefeituras.Add(item);
+                teste = "Atualizadas nas últimas 24Hrs";
             }
             if (item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Atualizada";
                 listaPrefeituras.Add(item);
+                teste = "Atualizadas";
             }
         }
 

@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorCRUD.UI.Shared
+namespace BlazorCRUD.UI.Pages
 {
     #line hidden
     using System;
@@ -89,7 +89,22 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas - Copy.razor"
+using Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas - Copy.razor"
+using Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/PrefeiturasAtualizadas")]
+    public partial class PrefeiturasAtualizadas___Copy : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,20 +112,42 @@ using Radzen.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 60 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Shared\NavMenu.razor"
+#line 41 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas - Copy.razor"
        
-	private bool collapseNavMenu = true;
 
-	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    IEnumerable<Prefeitura> filtro;
 
-	private void ToggleNavMenu()
-	{
-		collapseNavMenu = !collapseNavMenu;
-	}
+    private IEnumerable<Prefeitura> prefeituras;
+
+    [Inject]
+    public NavigationManager navigationManager { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            prefeituras = await PrefeituraServico.ListaDePrefeituras(1);
+            filtro = prefeituras;
+            Task.Delay(1800000).ContinueWith(t => AtualizarPagina());
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+
+    public void AtualizarPagina()
+    {
+        navigationManager.NavigateTo("/PrefeiturasAtualizadas24hrs", true);
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguracaoServico ConfiguracaoServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
 }
 #pragma warning restore 1591

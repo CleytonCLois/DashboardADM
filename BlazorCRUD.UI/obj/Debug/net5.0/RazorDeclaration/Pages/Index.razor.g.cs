@@ -112,7 +112,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 144 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 91 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
 
     private IEnumerable<Prefeitura> prefeituras;
@@ -126,6 +126,8 @@ using Interfaces;
     prefeiturasAtualizadasUltimas24hrsCount = 0,
     prefeiturasDesatualizadasCount = 0,
     prefeiturasDesatualizadasMaisDeUmaSemanaCount = 0;
+
+    string teste;
 
     IEnumerable<Prefeitura> filtro;
 
@@ -158,23 +160,23 @@ using Interfaces;
         {
             if (item.situacao == "4")
             {
-                item.situacao = "Desatualizada a mais de uma semana";
                 listaPrefeituras.Add(item);
+                teste = "Desatualizadas a mais de uma semana";
             }
             if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Desatualizada";
                 listaPrefeituras.Add(item);
+                teste = "Desatualizadas";
             }
             if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Atualizada nas últimas 24hrs";
                 listaPrefeituras.Add(item);
+                teste = "Atualizadas nas últimas 24Hrs";
             }
             if (item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Atualizada";
                 listaPrefeituras.Add(item);
+                teste = "Atualizadas";
             }
         }
 
