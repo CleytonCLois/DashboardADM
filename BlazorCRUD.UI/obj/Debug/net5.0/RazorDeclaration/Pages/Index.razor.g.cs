@@ -127,7 +127,7 @@ using Interfaces;
     prefeiturasDesatualizadasCount = 0,
     prefeiturasDesatualizadasMaisDeUmaSemanaCount = 0;
 
-    string teste;
+    string tituloListaDePrefeituras;
 
     IEnumerable<Prefeitura> filtro;
 
@@ -161,22 +161,22 @@ using Interfaces;
             if (item.situacao == "4")
             {
                 listaPrefeituras.Add(item);
-                teste = "Desatualizadas a mais de uma semana";
+                tituloListaDePrefeituras = "Desatualizadas a mais de uma semana";
             }
             if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
                 listaPrefeituras.Add(item);
-                teste = "Desatualizadas";
+                tituloListaDePrefeituras = "Desatualizadas";
             }
             if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
                 listaPrefeituras.Add(item);
-                teste = "Atualizadas nas últimas 24Hrs";
+                tituloListaDePrefeituras = "Atualizadas nas últimas 24Hrs";
             }
             if (item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
                 listaPrefeituras.Add(item);
-                teste = "Atualizadas";
+                tituloListaDePrefeituras = "Atualizadas";
             }
         }
 

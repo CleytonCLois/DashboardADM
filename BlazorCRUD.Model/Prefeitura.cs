@@ -1,4 +1,6 @@
-﻿namespace BlazorCRUD.Model
+﻿using System;
+
+namespace BlazorCRUD.Model
 {
     #region " Prefeitura "
 
@@ -8,7 +10,7 @@
 
         public string nomePrefeitura { get; set; } // nomePrefeitura
 
-        public string ultimaAtualizacao { get; set; } // ultimaAtualizacao
+        public DateTime ultimaAtualizacao { get; set; } // ultimaAtualizacao
 
         public string situacao { get; set; } // situacao
     }

@@ -1,0 +1,71 @@
+﻿@page "/NotasFiscais"
+
+@inject HttpClient http
+@using Model
+@using Interfaces
+@inject INotaFiscalServico NotaFiscalServico
+
+@if (notaFiscals == null)
+{
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">ADSIS-01-SQL</h5>
+                <div class="card-body">
+                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="NotaFiscal" Style="margin-bottom: 50px;">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="Id" Title="TiD" />
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="Numero" Title="Número" />
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="Prefeitura" Title="Prefeitura" />
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="DataHoraCadastro" Title="Data/Hora do Cadastro" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">ADSIS-02-SQL</h5>
+                <div class="card-body">
+                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="NotaFiscal" Style="margin-bottom: 50px;">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="Id" Title="TiD" />
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="Numero" Title="Número" />
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="Prefeitura" Title="Prefeitura" />
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="DataHoraCadastro" Title="Data/Hora do Cadastro" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    IEnumerable<NotaFiscal> filtro;
+    private IEnumerable<NotaFiscal> notaFiscals;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            notaFiscals = await NotaFiscalServico.CarregarDadosNotaFiscal();
+            filtro = notaFiscals;
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+}

@@ -19,6 +19,5 @@
         public DateTime DataHoraInclusao { get; set; }
 
         #endregion
-
     }
 }

@@ -1,13 +1,13 @@
 ﻿namespace BlazorCRUD.Data.Dapper.Repositorios
 {
-    #region " Usings "
+	#region " Usings "
 
-    using BlazorCRUD.Model;
-    using global::Dapper;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.SqlClient;
-    using System.Threading.Tasks;
+	using BlazorCRUD.Model;
+	using global::Dapper;
+	using System;
+	using System.Collections.Generic;
+	using System.Data.SqlClient;
+	using System.Threading.Tasks;
 
 	#endregion
 
@@ -15,9 +15,9 @@
 
 	public class LogRepositorio : ILogRepositorio
 	{
-        #region " Conexão "
+		#region " Conexão "
 
-        private string _connectionString;
+		private string _connectionString;
 
 		public LogRepositorio(string connectionString)
 		{

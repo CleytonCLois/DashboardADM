@@ -37,7 +37,7 @@
         public async Task<IEnumerable<Prefeitura>> TodasPrefeituras()
 		{
 			var db = dbConnection();
-			var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], FORMAT(UltimaAtualizacao, 'dd/MM/yyyy hh:mm:ss')[ultimaAtualizacao], Situacao[situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3)";
+			var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], UltimaAtualizacao [ultimaAtualizacao], Situacao[situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3)";
 			var result = await db.QueryAsync<Prefeitura>(sql, new { });
 
 			return result;
@@ -48,7 +48,7 @@
 			try
 			{
 				var db = dbConnection();
-				var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], FORMAT(UltimaAtualizacao, 'dd/MM/yyyy hh:mm:ss')[ultimaAtualizacao], CASE WHEN Situacao = 1 THEN 'Atualizada' WHEN Situacao = 2 THEN 'Atualizada nas últimas 24hrs' WHEN Situacao = 3 THEN 'Desatualizada' WHEN Situacao = 4 THEN 'Desatualizada por mais de uma semana' END [Situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = @Situacao";
+				var sql = "SELECT PRF_Tid[id], PRF_RazaoSocial[nomePrefeitura], UltimaAtualizacao [ultimaAtualizacao], CASE WHEN Situacao = 1 THEN 'Atualizada' WHEN Situacao = 2 THEN 'Atualizada nas últimas 24hrs' WHEN Situacao = 3 THEN 'Desatualizada' WHEN Situacao = 4 THEN 'Desatualizada por mais de uma semana' END [Situacao] FROM PREFEITURA INNER JOIN PARAMETROPREFEITURA ON (PAP_PAR_TidParametro = 17) AND (PAP_PRF_TidPrefeitura = PRF_Tid) AND (PAP_Valor = 'N') LEFT JOIN (SELECT MAX(UltimaAtualizacao) UltimaAtualizacao, TidPrefeitura, Situacao FROM VIEW_ULTIMA_SINCRONIZACAO GROUP BY TidPrefeitura, Situacao) U ON (U.TidPrefeitura = PRF_Tid) WHERE PRF_Tid NOT IN (1,3) AND Situacao = @Situacao";
 				var result = await db.QueryAsync<Prefeitura>(sql, new { situacao });
 
 				return result;

@@ -25,11 +25,14 @@ namespace BlazorCRUD.UI
 		{
 			services.AddRazorPages();
 			services.AddServerSideBlazor();
-			services.AddScoped<ILogServico, LogServico>();
-			services.AddScoped<IGraficoServico, GraficoServico>();
-			services.AddScoped<IPrefeituraServico, PrefeituraServico>();
-			services.AddScoped<IConfiguracaoServico, ConfiguracaoServico>();
 			services.AddSingleton<HttpClient>();
+			services.AddScoped<ILogServico, LogServico>();
+			services.AddScoped<IPessoaServico, PessoaServico>();
+			services.AddScoped<IGraficoServico, GraficoServico>();
+			services.AddScoped<IEmpresaServico, EmpresaServico>();
+			services.AddScoped<IPrefeituraServico, PrefeituraServico>();
+			services.AddScoped<INotaFiscalServico, NotaFiscalServico>();
+			services.AddScoped<IConfiguracaoServico, ConfiguracaoServico>();
 
 			var sqlConnectionConfiguration = new SqlConfiguration(Configuration.GetConnectionString("SqlConnection"));
 			services.AddSingleton(sqlConnectionConfiguration);

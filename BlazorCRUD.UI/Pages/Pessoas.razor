@@ -1,0 +1,72 @@
+﻿@page "/Pessoas"
+
+@inject HttpClient http
+@using Model
+@using Interfaces
+@inject IPessoaServico PessoaServico
+
+
+@if (pessoa == null)
+{
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">ADSIS-01-SQL</h5>
+                <div class="card-body">
+                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Pessoa" Style="margin-bottom: 50px;">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="Pessoa" Property="Id" Title="TiD" />
+                            <RadzenDataGridColumn TItem="Pessoa" Property="PES_CpfCnpj" Title="CPF/CNPJ" />
+                            <RadzenDataGridColumn TItem="Pessoa" Property="RazaoSocial" Title="Razão Social" />
+                            <RadzenDataGridColumn TItem="Pessoa" Property="DataHoraInclusao" Title="Data/Hora da Inclusão" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">ADSIS-02-SQL</h5>
+                <div class="card-body">
+                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Pessoa" Style="margin-bottom: 50px;">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="Pessoa" Property="Id" Title="TiD" />
+                            <RadzenDataGridColumn TItem="Pessoa" Property="PES_CpfCnpj" Title="CPF/CNPJ" />
+                            <RadzenDataGridColumn TItem="Pessoa" Property="RazaoSocial" Title="Razão Social" />
+                            <RadzenDataGridColumn TItem="Pessoa" Property="DataHoraInclusao" Title="Data/Hora da Inclusão" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    IEnumerable<Pessoa> filtro;
+    private IEnumerable<Pessoa> pessoa;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            pessoa = await PessoaServico.CarregarDadosPessoa();
+            filtro = pessoa;
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+}
