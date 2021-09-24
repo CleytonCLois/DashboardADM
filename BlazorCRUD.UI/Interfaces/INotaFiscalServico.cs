@@ -14,7 +14,9 @@
 	{
         #region " Funções "
 
-        Task<IEnumerable<NotaFiscal>> CarregarDadosNotaFiscal();
+        Task<IEnumerable<NotaFiscal>> CarregarDadosNotaFiscalADSIS01();
+
+		Task<IEnumerable<NotaFiscal>> CarregarDadosNotaFiscalADSIS02();
 
 		#endregion
 	}

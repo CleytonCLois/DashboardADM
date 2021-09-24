@@ -5,7 +5,7 @@
 @using Interfaces
 @inject INotaFiscalServico NotaFiscalServico
 
-@if (notaFiscals == null)
+@if (notaFiscal == null)
 {
     <div class="loading">
         <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
@@ -37,9 +37,9 @@ else
             <div class="card">
                 <h5 class="card-header">ADSIS-02-SQL</h5>
                 <div class="card-body">
-                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="NotaFiscal" Style="margin-bottom: 50px;">
+                    <RadzenDataGrid Data=@filtro2 FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="NotaFiscal" Style="margin-bottom: 50px;">
                         <Columns>
-                            <RadzenDataGridColumn TItem="NotaFiscal" Property="Id" Title="TiD" />
+                            <RadzenDataGridColumn TItem="NotaFiscal" Property="Id" Title="Id" />
                             <RadzenDataGridColumn TItem="NotaFiscal" Property="Numero" Title="Número" />
                             <RadzenDataGridColumn TItem="NotaFiscal" Property="Prefeitura" Title="Prefeitura" />
                             <RadzenDataGridColumn TItem="NotaFiscal" Property="DataHoraCadastro" Title="Data/Hora do Cadastro" />
@@ -54,14 +54,20 @@ else
 @code {
 
     IEnumerable<NotaFiscal> filtro;
-    private IEnumerable<NotaFiscal> notaFiscals;
+    private IEnumerable<NotaFiscal> notaFiscal;
+
+    IEnumerable<NotaFiscal> filtro2;
+    private IEnumerable<NotaFiscal> notaFiscal2;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            notaFiscals = await NotaFiscalServico.CarregarDadosNotaFiscal();
-            filtro = notaFiscals;
+            notaFiscal = await NotaFiscalServico.CarregarDadosNotaFiscalADSIS01();
+            filtro = notaFiscal;
+
+            notaFiscal2 = await NotaFiscalServico.CarregarDadosNotaFiscalADSIS02();
+            filtro2 = notaFiscal2;
         }
         catch (Exception e)
         {

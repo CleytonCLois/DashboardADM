@@ -14,7 +14,9 @@
 	{
         #region " Funções "
 
-        Task<IEnumerable<Pessoa>> CarregarDadosPessoa();
+        Task<IEnumerable<Pessoa>> CarregarDadosPessoaADSIS01();
+
+		Task<IEnumerable<Pessoa>> CarregarDadosPessoaADSIS02();
 
 		#endregion
 	}

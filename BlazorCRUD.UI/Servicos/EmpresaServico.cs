@@ -31,9 +31,14 @@
 
 		#region " Funções "
 
-		public Task<IEnumerable<Empresa>> CarregarDadosEmpresa()
+		public Task<IEnumerable<Empresa>> CarregarDadosEmpresaADSIS01()
 		{
-			return _EmpresaRepositorio.CarregarDadosEmpresa();
+			return _EmpresaRepositorio.CarregarDadosEmpresaADSIS01();
+		}
+
+		public Task<IEnumerable<Empresa>> CarregarDadosEmpresaADSIS02()
+		{
+			return _EmpresaRepositorio.CarregarDadosEmpresaADSIS02();
 		}
 
 		#endregion

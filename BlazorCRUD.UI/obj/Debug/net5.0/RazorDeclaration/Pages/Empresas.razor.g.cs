@@ -116,14 +116,19 @@ using Interfaces;
        
 
     IEnumerable<Empresa> filtro;
+    IEnumerable<Empresa> filtro2;
     private IEnumerable<Empresa> empresas;
+    private IEnumerable<Empresa> empresas2;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            empresas = await EmpresaServico.CarregarDadosEmpresa();
+            empresas = await EmpresaServico.CarregarDadosEmpresaADSIS01();
             filtro = empresas;
+
+            empresas2 = await EmpresaServico.CarregarDadosEmpresaADSIS02();
+            filtro2 = empresas2;
         }
         catch (Exception e)
         {

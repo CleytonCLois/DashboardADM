@@ -33,9 +33,18 @@
 
 		#region " Funções/Consultas "
 
-		public async Task<IEnumerable<Pessoa>> CarregarDadosPessoa()
+		public async Task<IEnumerable<Pessoa>> CarregarDadosPessoaADSIS01()
 		{
 			var db = dbConnection();
+			var sql = "Select Top 5 PES_Tid[Id], dbo.FormatarCpfCnpj(PES_CpfCnpj) AS PES_CpfCnpj, PES_RazaoSocial[RazaoSocial], CASE WHEN PRF_Tid = 22 THEN 'Eunápolis (22)' ELSE SUBSTRING(PRF_RazaoSocial ,25, LEN(PRF_RazaoSocial )-1) + ' (' + CAST( PRF_Tid AS Varchar(3 )) + ')' END AS Prefeitura, PES_DataHoraInclusao[DataHoraInclusao] From Pessoa With(Nolock) Inner Join Prefeitura With(Nolock) ON (PRF_Tid = PES_PRF_TidPrefeitura) Order By PES_Tid Desc";
+			var result = await db.QueryAsync<Pessoa>(sql, new { });
+
+			return result;
+		}
+
+		public async Task<IEnumerable<Pessoa>> CarregarDadosPessoaADSIS02()
+		{
+			var db = new SqlConnection("Data Source=192.168.30.13; database=ADM_SAATRI; uid=saatri; pwd=nfe3464241A; Pooling=true; Min Pool Size=10; Max Pool Size=100; Connect Timeout=60");
 			var sql = "Select Top 5 PES_Tid[Id], dbo.FormatarCpfCnpj(PES_CpfCnpj) AS PES_CpfCnpj, PES_RazaoSocial[RazaoSocial], CASE WHEN PRF_Tid = 22 THEN 'Eunápolis (22)' ELSE SUBSTRING(PRF_RazaoSocial ,25, LEN(PRF_RazaoSocial )-1) + ' (' + CAST( PRF_Tid AS Varchar(3 )) + ')' END AS Prefeitura, PES_DataHoraInclusao[DataHoraInclusao] From Pessoa With(Nolock) Inner Join Prefeitura With(Nolock) ON (PRF_Tid = PES_PRF_TidPrefeitura) Order By PES_Tid Desc";
 			var result = await db.QueryAsync<Pessoa>(sql, new { });
 

@@ -31,9 +31,14 @@
 
 		#region " Funções "
 
-		public Task<IEnumerable<NotaFiscal>> CarregarDadosNotaFiscal()
+		public Task<IEnumerable<NotaFiscal>> CarregarDadosNotaFiscalADSIS01()
 		{
-			return _NotaFiscalRepositorio.CarregarDadosNotaFiscal();
+			return _NotaFiscalRepositorio.CarregarDadosNotaFiscalADSIS01();
+		}
+			
+		public Task<IEnumerable<NotaFiscal>> CarregarDadosNotaFiscalADSIS02()
+		{
+			return _NotaFiscalRepositorio.CarregarDadosNotaFiscalADSIS02();
 		}
 
 		#endregion

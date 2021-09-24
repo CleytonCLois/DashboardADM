@@ -116,14 +116,20 @@ using Interfaces;
        
 
     IEnumerable<NotaFiscal> filtro;
-    private IEnumerable<NotaFiscal> notaFiscals;
+    private IEnumerable<NotaFiscal> notaFiscal;
+
+    IEnumerable<NotaFiscal> filtro2;
+    private IEnumerable<NotaFiscal> notaFiscal2;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            notaFiscals = await NotaFiscalServico.CarregarDadosNotaFiscal();
-            filtro = notaFiscals;
+            notaFiscal = await NotaFiscalServico.CarregarDadosNotaFiscalADSIS01();
+            filtro = notaFiscal;
+
+            notaFiscal2 = await NotaFiscalServico.CarregarDadosNotaFiscalADSIS02();
+            filtro2 = notaFiscal2;
         }
         catch (Exception e)
         {

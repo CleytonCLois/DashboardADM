@@ -38,9 +38,9 @@ else
             <div class="card">
                 <h5 class="card-header">ADSIS-02-SQL</h5>
                 <div class="card-body">
-                    <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Pessoa" Style="margin-bottom: 50px;">
+                    <RadzenDataGrid Data=@filtro2 FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Pessoa" Style="margin-bottom: 50px;">
                         <Columns>
-                            <RadzenDataGridColumn TItem="Pessoa" Property="Id" Title="TiD" />
+                            <RadzenDataGridColumn TItem="Pessoa" Property="Id" Title="Id" />
                             <RadzenDataGridColumn TItem="Pessoa" Property="PES_CpfCnpj" Title="CPF/CNPJ" />
                             <RadzenDataGridColumn TItem="Pessoa" Property="RazaoSocial" Title="Razão Social" />
                             <RadzenDataGridColumn TItem="Pessoa" Property="DataHoraInclusao" Title="Data/Hora da Inclusão" />
@@ -57,12 +57,18 @@ else
     IEnumerable<Pessoa> filtro;
     private IEnumerable<Pessoa> pessoa;
 
+    IEnumerable<Pessoa> filtro2;
+    private IEnumerable<Pessoa> pessoa2;
+
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            pessoa = await PessoaServico.CarregarDadosPessoa();
+            pessoa = await PessoaServico.CarregarDadosPessoaADSIS01();
             filtro = pessoa;
+
+            pessoa2 = await PessoaServico.CarregarDadosPessoaADSIS02();
+            filtro2 = pessoa2;
         }
         catch (Exception e)
         {

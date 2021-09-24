@@ -118,12 +118,18 @@ using Interfaces;
     IEnumerable<Pessoa> filtro;
     private IEnumerable<Pessoa> pessoa;
 
+    IEnumerable<Pessoa> filtro2;
+    private IEnumerable<Pessoa> pessoa2;
+
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            pessoa = await PessoaServico.CarregarDadosPessoa();
+            pessoa = await PessoaServico.CarregarDadosPessoaADSIS01();
             filtro = pessoa;
+
+            pessoa2 = await PessoaServico.CarregarDadosPessoaADSIS02();
+            filtro2 = pessoa2;
         }
         catch (Exception e)
         {

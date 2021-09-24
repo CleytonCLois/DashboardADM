@@ -97,16 +97,18 @@ using Radzen.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 55 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Shared\NavMenu.razor"
+#line 76 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Shared\NavMenu.razor"
        
-	private bool collapseNavMenu = true;
+    private bool collapseNavMenu = true;
+    private bool expandSubMenuEstatistica;
+    private bool expandSubMenuSincronizacao;
 
-	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-	private void ToggleNavMenu()
-	{
-		collapseNavMenu = !collapseNavMenu;
-	}
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
 
 #line default
 #line hidden
