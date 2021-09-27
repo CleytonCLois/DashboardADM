@@ -25,10 +25,12 @@ else
                     <RadzenDataGrid Data=@filtro FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Prefeitura" Style="margin-bottom: 50px;">
                         <Columns>
                             <RadzenDataGridColumn TItem="Prefeitura" Property="id" Title="ID">
+                                <FooterTemplate>
+                                    Quantidade total de prefeituras: <b>@filtro.Count()</b>
+                                </FooterTemplate>
                             </RadzenDataGridColumn>
                             <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
-                            <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização">
-                            </RadzenDataGridColumn>
+                            <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização" />
                         </Columns>
                     </RadzenDataGrid>
                 </div>

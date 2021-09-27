@@ -112,7 +112,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 91 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 99 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
 
     private IEnumerable<Prefeitura> prefeituras;

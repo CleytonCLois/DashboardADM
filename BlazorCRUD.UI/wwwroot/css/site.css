@@ -48,7 +48,6 @@ app {
 }
 
 .sidebar {
-    /*background-image: linear-gradient(180deg, rgb(0, 0, 0) 0%, #f86f30 70%);*/
     background-color: #222d3a;
 }
 
@@ -118,7 +117,10 @@ app {
 .validation-message {
     color: red;
 }
-
+/*
+.rz-chart-tooltip-conten{
+}
+*/
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -129,6 +131,10 @@ app {
     position: fixed;
     width: 100%;
     z-index: 1000;
+}
+
+.active {
+    color: green;
 }
 
 #blazor-error-ui .dismiss {

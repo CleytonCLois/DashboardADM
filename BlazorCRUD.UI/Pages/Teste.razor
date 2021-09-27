@@ -8,53 +8,49 @@
 @inject IConfiguracaoServico ConfiguracaoServico
 @inject NavigationManager navigationManager
 
-
-
-    @*MaioresEmissoresNotasFiscaisNoMes*@
-
-    @if (grafico == null)
-    {
-        <div class="loading">
-            <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
-            <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
-            <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
-        </div>
-    }
-    else
-    {
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <h5 class="card-header">Lista Top Prefeituras</h5>
-                    <div class="card-body">
-                        <RadzenChart>
-                            <RadzenColumnSeries Fill="#f27724" Data="@grafico" CategoryProperty="texto" LineType="LineType.Dotted" ValueProperty="valores">
-                            </RadzenColumnSeries>
-                            <RadzenCategoryAxis><RadzenTicks Stroke="#141b23" StrokeWidth="2" /></RadzenCategoryAxis>
-                            <RadzenLegend Visible="false"></RadzenLegend>
-                            <RadzenColumnOptions Margin="0" />
-                        </RadzenChart>
-                    </div>
+@if (grafico == null)
+{
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">Lista Top Prefeituras</h5>
+                <div class="card-body">
+                    <RadzenChart>
+                        <RadzenColumnSeries Fill="#f27724" Data="@grafico" CategoryProperty="texto" LineType="LineType.Dotted" ValueProperty="valores">
+                        </RadzenColumnSeries>
+                        <RadzenCategoryAxis><RadzenTicks Stroke="#141b23" StrokeWidth="2" /></RadzenCategoryAxis>
+                        <RadzenLegend Visible="false"></RadzenLegend>
+                        <RadzenColumnOptions Margin="0" />
+                    </RadzenChart>
                 </div>
             </div>
         </div>
-    }
+    </div>
+}
 
-    @code {
+@code {
 
-        IEnumerable<Grafico> grafico;
+    IEnumerable<Grafico> grafico;
 
-        IEnumerable<Grafico> filtro;
+    IEnumerable<Grafico> filtro;
 
-        protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
+    {
+        try
         {
-            try
-            {
-                grafico = await GraficoServico.TopPrefeituras();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            grafico = await GraficoServico.TopPrefeituras();
+        }
+        catch (Exception)
+        {
+            throw;
         }
     }
+}

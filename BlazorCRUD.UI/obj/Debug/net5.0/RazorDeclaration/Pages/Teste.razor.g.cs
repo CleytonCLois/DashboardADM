@@ -112,25 +112,24 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Teste.razor"
-           
+#line 39 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Teste.razor"
+       
 
-        IEnumerable<Grafico> grafico;
+    IEnumerable<Grafico> grafico;
 
-        IEnumerable<Grafico> filtro;
+    IEnumerable<Grafico> filtro;
 
-        protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
+    {
+        try
         {
-            try
-            {
-                grafico = await GraficoServico.TopPrefeituras();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            grafico = await GraficoServico.TopPrefeituras();
         }
-    
+        catch (Exception)
+        {
+            throw;
+        }
+    }
 
 #line default
 #line hidden
