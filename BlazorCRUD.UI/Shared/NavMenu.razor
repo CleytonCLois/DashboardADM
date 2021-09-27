@@ -4,11 +4,28 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
+
         <li class="nav-item px-3">
             <NavLink class="nav-link" @onclick="()=> expandSubMenuEstatistica = !expandSubMenuEstatistica">
-                <span class="oi oi-loop-circular" aria-hidden="true"></span> Sincronização
+                <span class="oi oi-pie-chart" aria-hidden="true"></span> Estatística
             </NavLink>
             @if (expandSubMenuEstatistica)
+            {
+                <ul class="nav flex-column">
+                    <li class="nav-item px-3">
+                        <NavLink class="nav-link" href="Teste" Match="NavLinkMatch.All">
+                            <span class="oi oi-graph" aria-hidden="true"></span> Top Prefeituras
+                        </NavLink>
+                    </li>
+                </ul>
+            }
+        </li>
+
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" @onclick="()=> expandSubMenuReplicacao = !expandSubMenuReplicacao">
+                <span class="oi oi-loop-circular" aria-hidden="true"></span> Sincronização
+            </NavLink>
+            @if (expandSubMenuReplicacao)
             {
                 <ul class="nav flex-column">
                     <li class="nav-item px-3">
@@ -75,6 +92,7 @@
 
 @code {
     private bool collapseNavMenu = true;
+    private bool expandSubMenuReplicacao;
     private bool expandSubMenuEstatistica;
     private bool expandSubMenuSincronizacao;
 

@@ -112,9 +112,8 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 134 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
+#line 91 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Index.razor"
        
-
 
     private IEnumerable<Prefeitura> prefeituras;
     List<Grafico> graficoCircularPrefeiturasDesatualizadas = new List<Grafico>();
@@ -127,6 +126,8 @@ using Interfaces;
     prefeiturasAtualizadasUltimas24hrsCount = 0,
     prefeiturasDesatualizadasCount = 0,
     prefeiturasDesatualizadasMaisDeUmaSemanaCount = 0;
+
+    string tituloListaDePrefeituras;
 
     IEnumerable<Prefeitura> filtro;
 
@@ -159,23 +160,23 @@ using Interfaces;
         {
             if (item.situacao == "4")
             {
-                item.situacao = "Desatualizada por mais de uma semana";
                 listaPrefeituras.Add(item);
+                tituloListaDePrefeituras = "Desatualizadas a mais de uma semana";
             }
             if (item.situacao == "3" && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Desatualizada";
                 listaPrefeituras.Add(item);
+                tituloListaDePrefeituras = "Desatualizadas";
             }
             if (item.situacao == "2" && prefeiturasDesatualizadasCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Atualizada nas últimas 24hrs";
                 listaPrefeituras.Add(item);
+                tituloListaDePrefeituras = "Atualizadas nas últimas 24Hrs";
             }
             if (item.situacao == "1" && prefeiturasAtualizadasUltimas24hrsCount == 0 && prefeiturasDesatualizadasMaisDeUmaSemanaCount == 0)
             {
-                item.situacao = "Atualizada";
                 listaPrefeituras.Add(item);
+                tituloListaDePrefeituras = "Atualizadas";
             }
         }
 
@@ -206,10 +207,12 @@ using Interfaces;
         prefeiturasAtualizadas.Add(new Grafico() { texto = "Prefeituras Atualizadas", valores = prefeiturasAtualizadasCount });
         prefeiturasAtualizadas24hrs.Add(new Grafico() { texto = "Prefeituras Atualizadas Últimas 24hrs", valores = prefeiturasAtualizadasUltimas24hrsCount });
         prefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Desatualizadas", valores = prefeiturasDesatualizadasCount });
-        prefeiturasDesatualizadasMaisDeUmaSemana.Add(new Grafico() { texto = "Prefeituras Por mais de Uma Semana", valores = prefeiturasDesatualizadasMaisDeUmaSemanaCount });
+        prefeiturasDesatualizadasMaisDeUmaSemana.Add(new Grafico() { texto = "Prefeituras a mais de Uma Semana", valores = prefeiturasDesatualizadasMaisDeUmaSemanaCount });
 
-        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Desatualizadas", valores = prefeiturasDesatualizadasCount });
-        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Prefeituras Por mais de Uma Semana", valores = prefeiturasDesatualizadasMaisDeUmaSemanaCount });
+        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Atualizadas", valores = prefeiturasAtualizadasCount });
+        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Atualizadas Últimas 24hrs", valores = prefeiturasAtualizadasUltimas24hrsCount });
+        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Desatualizadas", valores = prefeiturasDesatualizadasCount });
+        graficoCircularPrefeiturasDesatualizadas.Add(new Grafico() { texto = "Desatualizadas a mais de uma semana", valores = prefeiturasDesatualizadasMaisDeUmaSemanaCount });
     }
 
 #line default

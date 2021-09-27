@@ -27,9 +27,14 @@
 			_GraficoRepositorio = new GraficoRepositorio(configuration.ConnectionString);
 		}
 
-        #endregion
+		#endregion
 
-        #region " Funções "
+		#region " Funções "
+
+		public Task<IEnumerable<Grafico>> TopPrefeituras()
+		{
+			return _GraficoRepositorio.TopPrefeituras();
+		}
 
 		#endregion
 	}

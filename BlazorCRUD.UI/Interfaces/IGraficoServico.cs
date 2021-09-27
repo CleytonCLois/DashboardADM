@@ -15,6 +15,8 @@
 
         #region " Funções "
 
+        Task<IEnumerable<Grafico>> TopPrefeituras();
+
         #endregion
     }
 
