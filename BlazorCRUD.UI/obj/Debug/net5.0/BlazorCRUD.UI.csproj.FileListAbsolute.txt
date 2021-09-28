@@ -120,3 +120,11 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\net5.0\Razor\Pages\Pessoas.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\net5.0\RazorDeclaration\Pages\Teste.razor.g.cs
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Debug\net5.0\Razor\Pages\Teste.razor.g.cs
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\net5.0\Microsoft.JSInterop.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\net5.0\MudBlazor.dll
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\bin\Debug\net5.0\System.IO.Pipelines.dll

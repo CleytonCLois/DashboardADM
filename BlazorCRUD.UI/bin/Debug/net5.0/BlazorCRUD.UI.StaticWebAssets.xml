@@ -1,3 +1,4 @@
 ﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="_content/MudBlazor" Path="C:\Users\Marcelo\.nuget\packages\mudblazor\5.1.5\build\..\staticwebassets\" />
   <ContentRoot BasePath="_content/Radzen.Blazor" Path="C:\Users\Marcelo\.nuget\packages\radzen.blazor\3.10.2\build\..\staticwebassets\" />
 </StaticWebAssets>

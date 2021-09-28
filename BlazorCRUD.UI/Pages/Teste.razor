@@ -18,18 +18,44 @@
 }
 else
 {
+
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="card">
                 <h5 class="card-header">Lista Top Prefeituras</h5>
                 <div class="card-body">
                     <RadzenChart>
                         <RadzenColumnSeries Fill="#f27724" Data="@grafico" CategoryProperty="texto" LineType="LineType.Dotted" ValueProperty="valores">
                         </RadzenColumnSeries>
-                        <RadzenCategoryAxis><RadzenTicks Stroke="#141b23" StrokeWidth="2" /></RadzenCategoryAxis>
+                        <RadzenCategoryAxis Visible="false"><RadzenTicks Stroke="#141b23" StrokeWidth="2" /></RadzenCategoryAxis>
                         <RadzenLegend Visible="false"></RadzenLegend>
                         <RadzenColumnOptions Margin="0" />
                     </RadzenChart>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-header">Lista de prefeituras atualizadas</h5>
+                <div class="card-body">
+                    <MudCarousel Style="height:300px;" TData="Grafico" ShowArrows="false" ShowDelimiters="false" AutoCycle="true">
+                        @foreach (var item in grafico)
+                        {
+                            <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <b>Prefeitura:</b>
+                                        <div>@item.texto</div>
+                                        <div style="margin-top:20px; width:600px"><b>Nº de notas emitidas:</b></div>
+                                        <div>@(item.valores.ToString())</div>
+                                        <br />
+                                        @*<RadzenImage Path="" Style="width:10px;" />*@
+                                        <RadzenImage Path="@teste(item.logo)" Style="width:600px" />
+                                    </div>
+                                </div>
+                            </MudCarouselItem>
+                        }
+                    </MudCarousel>
                 </div>
             </div>
         </div>
@@ -37,10 +63,9 @@ else
 }
 
 @code {
+    IEnumerable<Prefeitura> filtro;
 
     IEnumerable<Grafico> grafico;
-
-    IEnumerable<Grafico> filtro;
 
     protected override async Task OnInitializedAsync()
     {
@@ -48,9 +73,16 @@ else
         {
             grafico = await GraficoServico.TopPrefeituras();
         }
-        catch (Exception)
+        catch (Exception e)
         {
             throw;
         }
+    }
+
+    public string teste(byte[] teste) {
+        var base64 = Convert.ToBase64String(teste);
+        var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+
+        return imgSrc;
     }
 }

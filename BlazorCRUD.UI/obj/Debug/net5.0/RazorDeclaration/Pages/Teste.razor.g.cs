@@ -90,6 +90,13 @@ using Radzen.Blazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Teste.razor"
 using Model;
 
@@ -112,12 +119,11 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Teste.razor"
+#line 65 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Teste.razor"
        
+    IEnumerable<Prefeitura> filtro;
 
     IEnumerable<Grafico> grafico;
-
-    IEnumerable<Grafico> filtro;
 
     protected override async Task OnInitializedAsync()
     {
@@ -125,10 +131,17 @@ using Interfaces;
         {
             grafico = await GraficoServico.TopPrefeituras();
         }
-        catch (Exception)
+        catch (Exception e)
         {
             throw;
         }
+    }
+
+    public string teste(byte[] teste) {
+        var base64 = Convert.ToBase64String(teste);
+        var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+
+        return imgSrc;
     }
 
 #line default

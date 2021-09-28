@@ -90,6 +90,13 @@ using Radzen.Blazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
 using Model;
 
@@ -112,7 +119,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 21 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
+#line 62 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Configuracoes.razor"
        
 
     int? value;

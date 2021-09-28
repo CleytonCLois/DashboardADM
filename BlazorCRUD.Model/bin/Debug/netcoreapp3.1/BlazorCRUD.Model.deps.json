@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.10",
           "Microsoft.Extensions.Http": "5.0.0",
+          "MudBlazor": "5.1.5",
           "Newtonsoft.Json": "13.0.1",
           "Radzen.Blazor": "3.10.2",
           "System.Data.SqlClient": "4.8.3",
@@ -485,6 +486,7 @@
           }
         }
       },
+      "MudBlazor/5.1.5": {},
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -1043,6 +1045,13 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "MudBlazor/5.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dP4cnbKtSIq+AN82P1IlieGCbzANEwtWHmoUmvyRz5ppAdcIWYfh/CmsYvT58woQVyOJreDmWlyxryseIymMeg==",
+      "path": "mudblazor/5.1.5",
+      "hashPath": "mudblazor.5.1.5.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",

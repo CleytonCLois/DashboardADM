@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MudBlazor.Services;
 using System.Net.Http;
 
 namespace BlazorCRUD.UI
@@ -25,6 +26,8 @@ namespace BlazorCRUD.UI
 		{
 			services.AddRazorPages();
 			services.AddServerSideBlazor();
+			services.AddMudServices();
+
 			services.AddSingleton<HttpClient>();
 			services.AddScoped<ILogServico, LogServico>();
 			services.AddScoped<IPessoaServico, PessoaServico>();
@@ -33,7 +36,7 @@ namespace BlazorCRUD.UI
 			services.AddScoped<IPrefeituraServico, PrefeituraServico>();
 			services.AddScoped<INotaFiscalServico, NotaFiscalServico>();
 			services.AddScoped<IConfiguracaoServico, ConfiguracaoServico>();
-
+			
 			var sqlConnectionConfiguration = new SqlConfiguration(Configuration.GetConnectionString("SqlConnection"));
 			services.AddSingleton(sqlConnectionConfiguration);
 		}

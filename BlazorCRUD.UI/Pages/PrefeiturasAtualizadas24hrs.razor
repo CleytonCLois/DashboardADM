@@ -4,8 +4,10 @@
 @using Model
 @using Interfaces
 @inject IGraficoServico GraficoServico
+@inject NavigationManager navigationManager
 @inject IPrefeituraServico PrefeituraServico
 @inject IConfiguracaoServico ConfiguracaoServico
+
 
 @if (prefeituras == null)
 {
@@ -26,7 +28,7 @@ else
                         <Columns>
                             <RadzenDataGridColumn TItem="Prefeitura" Property="id" Title="ID">
                                 <FooterTemplate>
-                                    Quantidade total de prefeituras: <b>@filtro.Count()</b>
+                                    Quantidade total de prefeituras atualizadas nas últimas 24 horas: <b>@filtro.Count()</b>
                                 </FooterTemplate>
                             </RadzenDataGridColumn>
                             <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
@@ -44,9 +46,6 @@ else
     IEnumerable<Prefeitura> filtro;
 
     private IEnumerable<Prefeitura> prefeituras;
-
-    [Inject]
-    public NavigationManager navigationManager { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

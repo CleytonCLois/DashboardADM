@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[5.1.5, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -163,6 +167,10 @@
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[5.1.5, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -264,6 +272,10 @@
             "Microsoft.Extensions.Http": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[5.1.5, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

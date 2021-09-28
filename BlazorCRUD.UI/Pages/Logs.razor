@@ -20,7 +20,7 @@ else
             <div class="card">
                 <h5 class="card-header">ADSIS-01-SQL</h5>
                 <div class="card-body">
-                    <RadzenDataGrid ColumnWidth="300px" Data=@filtro LogicalFilterOperator="LogicalFilterOperator.Or" AllowColumnResize="true" FilterMode="FilterMode.Advanced" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Log" Style="margin-bottom: 50px;">
+                    <RadzenDataGrid Data=@filtro LogicalFilterOperator="LogicalFilterOperator.Or" AllowColumnResize="true" FilterMode="FilterMode.Advanced" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Log" Style="margin-bottom: 50px;">
                         <Columns>
                             <RadzenDataGridColumn TItem="Log" Property="Id" Title="Id" />
                             <RadzenDataGridColumn TItem="Log" Property="DataHoraInicial" Title="Data Hora Inicial" />

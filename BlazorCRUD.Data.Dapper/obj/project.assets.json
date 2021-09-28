@@ -783,6 +783,15 @@
           }
         }
       },
+      "MudBlazor/5.1.5": {
+        "type": "package",
+        "build": {
+          "buildTransitive/MudBlazor.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/MudBlazor.props": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -1162,6 +1171,7 @@
           "Microsoft.Data.SqlClient": "3.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
           "Microsoft.Extensions.Http": "5.0.0",
+          "MudBlazor": "5.1.5",
           "Newtonsoft.Json": "13.0.1",
           "Radzen.Blazor": "3.10.2",
           "System.Data.SqlClient": "4.8.3",
@@ -2198,6 +2208,27 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "MudBlazor/5.1.5": {
+      "sha512": "dP4cnbKtSIq+AN82P1IlieGCbzANEwtWHmoUmvyRz5ppAdcIWYfh/CmsYvT58woQVyOJreDmWlyxryseIymMeg==",
+      "type": "package",
+      "path": "mudblazor/5.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "Nuget.png",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/MudBlazor.props",
+        "buildMultiTargeting/MudBlazor.props",
+        "buildTransitive/MudBlazor.props",
+        "lib/net5.0/MudBlazor.dll",
+        "lib/net5.0/MudBlazor.xml",
+        "mudblazor.5.1.5.nupkg.sha512",
+        "mudblazor.nuspec",
+        "staticwebassets/MudBlazor.min.css",
+        "staticwebassets/MudBlazor.min.js"
       ]
     },
     "Newtonsoft.Json/13.0.1": {
@@ -3266,6 +3297,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.10",
       "Microsoft.Extensions.Http >= 5.0.0",
+      "MudBlazor >= 5.1.5",
       "Newtonsoft.Json >= 13.0.1",
       "Radzen.Blazor >= 3.10.2",
       "System.Data.SqlClient >= 4.8.3",
@@ -3341,6 +3373,10 @@
           "Microsoft.Extensions.Http": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "MudBlazor": {
+            "target": "Package",
+            "version": "[5.1.5, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

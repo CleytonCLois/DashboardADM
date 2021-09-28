@@ -90,6 +90,13 @@ using Radzen.Blazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 4 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas.razor"
 using Model;
 
@@ -112,15 +119,12 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas.razor"
+#line 43 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\PrefeiturasAtualizadas.razor"
        
 
     IEnumerable<Prefeitura> filtro;
 
     private IEnumerable<Prefeitura> prefeituras;
-
-    [Inject]
-    public NavigationManager navigationManager { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -146,6 +150,7 @@ using Interfaces;
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IConfiguracaoServico ConfiguracaoServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IPrefeituraServico PrefeituraServico { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGraficoServico GraficoServico { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient http { get; set; }
     }
