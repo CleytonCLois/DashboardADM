@@ -36,7 +36,7 @@ namespace BlazorCRUD.UI
 			services.AddScoped<IPrefeituraServico, PrefeituraServico>();
 			services.AddScoped<INotaFiscalServico, NotaFiscalServico>();
 			services.AddScoped<IConfiguracaoServico, ConfiguracaoServico>();
-			
+
 			var sqlConnectionConfiguration = new SqlConfiguration(Configuration.GetConnectionString("SqlConnection"));
 			services.AddSingleton(sqlConnectionConfiguration);
 		}

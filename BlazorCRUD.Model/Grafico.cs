@@ -11,6 +11,12 @@ namespace BlazorCRUD.Model
         public double valores { get; set; } // Valores
 
         public byte[] logo { get; set; } // Logo
+
+        public string Hora { get; set; } // Logo
+
+        public int Quantidade { get; set; } // Logo
+
+        public string Situacao { get; set; } // Logo
     }
 
     #endregion

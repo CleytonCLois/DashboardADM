@@ -36,6 +36,11 @@
 			return _GraficoRepositorio.TopPrefeituras();
 		}
 
+		public Task<IEnumerable<Grafico>> Teste()
+		{
+			return _GraficoRepositorio.Teste();
+		}
+
 		#endregion
 	}
 

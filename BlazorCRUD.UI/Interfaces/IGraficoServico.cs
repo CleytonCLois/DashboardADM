@@ -17,6 +17,8 @@
 
         Task<IEnumerable<Grafico>> TopPrefeituras();
 
+        Task<IEnumerable<Grafico>> Teste();
+
         #endregion
     }
 

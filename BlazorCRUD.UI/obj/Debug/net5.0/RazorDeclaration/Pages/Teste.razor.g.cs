@@ -119,29 +119,56 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Teste.razor"
+#line 77 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Teste.razor"
        
+
+    IEnumerable<ColorScheme> colorSchemes = Enum.GetValues(typeof(ColorScheme)).Cast<ColorScheme>();
+    ColorScheme colorScheme = ColorScheme.Palette;
+
     IEnumerable<Prefeitura> filtro;
 
     IEnumerable<Grafico> grafico;
+    IEnumerable<Grafico> grafico2;
+    IList<Grafico> grafico3;
+    IEnumerable<Grafico> teste;
+
+    List<Grafico> um = new List<Grafico>();
+    List<Grafico> dois = new List<Grafico>();
+    List<Grafico> tres = new List<Grafico>();
+    List<Grafico> quatro = new List<Grafico>();
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             grafico = await GraficoServico.TopPrefeituras();
+            grafico2 = await GraficoServico.Teste();
+            //grafico3 = await GraficoServico.Teste();
+
+            foreach (var item in grafico2)
+            {
+                if(item.Situacao == "Sem Lotes")
+                {
+                    um.Add(item);
+                }
+                if (item.Situacao == "Processados com Sucesso")
+                {
+                    dois.Add(item);
+                }
+                if (item.Situacao == "Processados com Erro")
+                {
+                    tres.Add(item);
+                }
+                if (item.Situacao == "Aguardando Processamento")
+                {
+                    quatro.Add(item);
+                }
+            }
         }
         catch (Exception e)
         {
             throw;
         }
-    }
-
-    public string teste(byte[] teste) {
-        var base64 = Convert.ToBase64String(teste);
-        var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-
-        return imgSrc;
     }
 
 #line default
