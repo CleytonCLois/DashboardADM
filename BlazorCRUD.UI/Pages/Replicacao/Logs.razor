@@ -1,0 +1,64 @@
+﻿@page "/Logs"
+
+@inject HttpClient http
+@using Model
+@using Interfaces
+@inject ILogServico LogServico
+@inject NavigationManager navigationManager
+
+@if (logs == null)
+{
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
+}
+else
+{
+    <meta HTTP-EQUIV="REFRESH" CONTENT="60">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">ADSIS-01-SQL</h5>
+                <div class="card-body">
+                    <RadzenDataGrid Data=@logs LogicalFilterOperator="LogicalFilterOperator.Or" AllowColumnResize="true" FilterMode="FilterMode.Advanced" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Log" Style="margin-bottom: 50px;">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="Log" Property="Id" Title="Id" />
+                            <RadzenDataGridColumn TItem="Log" Property="DataHoraInicial" Title="Data Hora Inicial" />
+                            <RadzenDataGridColumn TItem="Log" Property="DataHoraFinal" Title="Data Hora Final" />
+                            <RadzenDataGridColumn TItem="Log" Property="TipoLog" Title="Tipo Log" />
+                            <RadzenDataGridColumn TItem="Log" Property="Notificacao" Title="Notificação" />
+                            <RadzenDataGridColumn TItem="Log" Property="PrefeituraId" Title="Prefeitura" />
+                            <RadzenDataGridColumn TItem="Log" Property="UsuarioId" Title="Usuário" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Atualizado as @DataAtualizacao.ToString("HH:mm:ss") | Próxima atualização as @DataAtualizacao.AddMinutes(1).ToString("HH:mm:ss")</h2>
+        </div>
+    </div>
+}
+
+@code {
+
+    DateTime DataAtualizacao = DateTime.Now;
+
+    private IEnumerable<Log> logs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            logs = await LogServico.CarregarDadosLog();
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+}

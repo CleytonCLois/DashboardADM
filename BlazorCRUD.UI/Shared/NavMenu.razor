@@ -4,7 +4,6 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
-
         <li class="nav-item px-3">
             <NavLink class="nav-link" @onclick="()=> expandSubMenuEstatistica = !expandSubMenuEstatistica">
                 <span class="oi oi-pie-chart" aria-hidden="true"></span> Estatística
@@ -13,14 +12,13 @@
             {
                 <ul class="nav flex-column">
                     <li class="nav-item px-3">
-                        <NavLink class="nav-link" href="Teste" Match="NavLinkMatch.All">
-                            <span class="oi oi-graph" aria-hidden="true"></span> Top Prefeituras
+                        <NavLink class="nav-link" href="EmissaoNFE" Match="NavLinkMatch.All">
+                            <span class="oi oi-graph" aria-hidden="true"></span> Emissão de NF-e
                         </NavLink>
                     </li>
                 </ul>
             }
         </li>
-
         <li class="nav-item px-3">
             <NavLink class="nav-link" @onclick="()=> expandSubMenuReplicacao = !expandSubMenuReplicacao">
                 <span class="oi oi-loop-circular" aria-hidden="true"></span> Sincronização
@@ -33,7 +31,7 @@
                             <span class="oi oi-home" aria-hidden="true"></span> Prefeituras
                         </NavLink>
                     </li>
-                    <li class="nav-item px-3">
+                    @*<li class="nav-item px-3">
                         <NavLink class="nav-link" href="PrefeiturasAtualizadas" Match="NavLinkMatch.All">
                             <span class="oi oi-check" aria-hidden="true"></span> Atualizadas
                         </NavLink>
@@ -52,11 +50,10 @@
                         <NavLink class="nav-link" href="PrefeiturasDesatualizadasMaisDeUmaSemana" Match="NavLinkMatch.All">
                             <span class="oi oi-x" aria-hidden="true"></span> Mais de 7 dias
                         </NavLink>
-                    </li>
+                    </li>*@
                 </ul>
             }
         </li>
-
         <li class="nav-item px-3">
             <NavLink class="nav-link" @onclick="()=> expandSubMenuSincronizacao = !expandSubMenuSincronizacao">
                 <span class="oi oi-transfer" aria-hidden="true"></span> Replicação
@@ -88,6 +85,9 @@
             }
         </li>
     </ul>
+</div>
+<div style="position: absolute; bottom: 10px; width: 100%; display: flex; align-items: center; color: #d7d7d7">
+    <span type="text" id="rel" style="text-align: center; width: 100%; font-size: 0.9rem"></span>
 </div>
 
 @code {

@@ -4,7 +4,6 @@
     top: 35%
 }
 
-
 .grafico {
     background-color: #E8E8E8;
     border: 20px
@@ -90,7 +89,7 @@
     display: inline-block;
     background-color: #34495E;
     color: #fff;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .icon-part i {

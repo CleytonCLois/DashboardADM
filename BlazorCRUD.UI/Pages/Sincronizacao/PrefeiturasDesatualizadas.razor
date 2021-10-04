@@ -1,0 +1,66 @@
+﻿@page "/PrefeiturasDesatualizadas"
+
+@inject HttpClient http
+@using Model
+@using Interfaces
+@inject IGraficoServico GraficoServico
+@inject NavigationManager navigationManager
+@inject IPrefeituraServico PrefeituraServico
+@inject IConfiguracaoServico ConfiguracaoServico
+
+@if (prefeituras == null)
+{
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">Lista de prefeituras desatualizadas</h5>
+                <div class="card-body">
+                    <RadzenDataGrid Data=@prefeituras FilterMode="FilterMode.Simple" AllowFiltering="true" AllowPaging="true" AllowSorting="true" TItem="Prefeitura" Style="margin-bottom: 50px;">
+                        <Columns>
+                            <RadzenDataGridColumn TItem="Prefeitura" Property="id" Title="ID">
+                                <FooterTemplate>
+                                    Quantidade total de prefeituras desatualizadas: <b>@prefeituras.Count()</b>
+                                </FooterTemplate>
+                            </RadzenDataGridColumn>
+                            <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
+                            <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização" />
+                        </Columns>
+                    </RadzenDataGrid>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    IEnumerable<Prefeitura> filtro;
+
+    private IEnumerable<Prefeitura> prefeituras;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            prefeituras = await PrefeituraServico.ListaDePrefeituras(3);
+            Task.Delay(1800000).ContinueWith(t => AtualizarPagina());
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+
+    public void AtualizarPagina()
+    {
+        navigationManager.NavigateTo("/PrefeiturasDesatualizadasMaisDeUmaSemana", true);
+    }
+}

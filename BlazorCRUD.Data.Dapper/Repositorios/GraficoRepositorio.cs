@@ -41,7 +41,22 @@
 			try
 			{
 				var db = dbConnection();
-				var sql = "SELECT TOP 15 MUN_Nome[texto], CAST(COUNT(*) as float) [valores], CAST(PRL_Logo AS VARBINARY(max)) [Logo] FROM DOCUMENTOFISCAL WITH(NOLOCK) INNER JOIN PREFEITURAENDERECO ON (PFE_PRF_TidPrefeitura = DOF_PFE_TidPrefeituraEndereco) INNER JOIN PREFEITURA ON (PRF_Tid = PFE_PRF_TidPrefeitura) INNER JOIN MUNICIPIO ON (MUN_Tid = PRF_MUN_TidMunicipio) INNER JOIN PREFEITURALOGO ON(PRF_PRL_TidLogoAtual = PRL_Tid) WHERE MONTH(DOF_DataEmissao) = 9 GROUP BY MUN_Nome, CAST(PRL_Logo AS VARBINARY(MAX)) ORDER BY valores DESC";
+				var sql = @"SELECT TOP 20 MUN_Nome[texto], 
+						   CAST(COUNT(*) as float) [valores], 
+						   CAST(PRL_Logo AS VARBINARY(max)) [Logo]
+					FROM DOCUMENTOFISCAL WITH(NOLOCK) 
+						INNER JOIN PREFEITURAENDERECO ON (PFE_PRF_TidPrefeitura = DOF_PFE_TidPrefeituraEndereco) 
+						INNER JOIN PREFEITURA ON (PRF_Tid = PFE_PRF_TidPrefeitura) 
+						INNER JOIN MUNICIPIO ON (MUN_Tid = PRF_MUN_TidMunicipio) 
+						INNER JOIN PREFEITURALOGO ON(PRF_PRL_TidLogoAtual = PRL_Tid)  
+					WHERE (MONTH(DOF_DataEmissao) = (MONTH(DATEADD(MONTH, -1, GETDATE()))))
+						AND (YEAR(DOF_DataEmissao) = (YEAR(DATEADD(YEAR, CASE WHEN (MONTH(DATEADD(MONTH, -1, GETDATE()))) = 12 THEN -1 ELSE 0 END, GETDATE()))))
+						AND NOT EXISTS (SELECT *
+										FROM PARAMETROPREFEITURA
+										WHERE PAP_PAR_TidParametro = 17
+											AND PAP_PRF_TidPrefeitura = PRF_Tid
+											AND PAP_Valor = 'S')
+					GROUP BY MUN_Nome, CAST(PRL_Logo AS VARBINARY(MAX)) ORDER BY valores DESC";
 				var result = await db.QueryAsync<Grafico>(sql, new { });
 
 				return result;

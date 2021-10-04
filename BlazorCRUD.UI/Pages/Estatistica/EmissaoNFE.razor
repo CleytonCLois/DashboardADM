@@ -1,0 +1,119 @@
+﻿@page "/EmissaoNFE"
+
+@using Model
+@using Interfaces
+@inject HttpClient https
+@inject IGraficoServico GraficoServico
+@inject IPrefeituraServico PrefeituraServico
+@inject IConfiguracaoServico ConfiguracaoServico
+@inject NavigationManager navigationManager
+
+@if (graficoMaioresEmissores == null)
+{
+    <div class="loading">
+        <img src="imgLoading.png" style="display: block; margin-left: auto; margin-right: auto">
+        <RadzenProgressBar Value="100" ShowValue="false" Mode="ProgressBarMode.Indeterminate" Style="margin-bottom: 20px; align-self: center;" />
+        <h3 style=" align-self: center;">Aguarde até carregar todos os dados.</h3>
+    </div>
+}
+else
+{
+    <meta HTTP-EQUIV="REFRESH" CONTENT="1800">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <h5 class="card-header">Gráfico dos Maiores Emissores de NF-e</h5>
+                <div class="card-body">
+                    <RadzenChart Style="height: 42vh; border-left:15px">
+                        <RadzenBarSeries Data="@graficoMaioresEmissores" CategoryProperty="texto" Title="Nº NNF-e" LineType="LineType.Dashed" ValueProperty="valores" />
+                        <RadzenLegend Visible="false" />
+                    </RadzenChart>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <h5 class="card-header">Maiores Emissores de NF-e</h5>
+                <div class="card-body">
+                    <MudCarousel Style="font-size: x-large; height: 42vh; display: flex; flex-wrap: wrap; justify-content: center; flex-direction: column; text-align: center;" TData="Grafico" ShowArrows="false" ShowDelimiters="false" AutoCycle="true">
+                        @foreach (var item in graficoMaioresEmissores)
+                        {
+                            <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+                                <b>Prefeitura:</b>
+                                <div>@item.texto</div>
+                                <div><b>Nº de notas emitidas:</b></div>
+                                <div>@(item.valores.ToString())</div>
+                                <br />
+                                <img src="data:image;base64,@System.Convert.ToBase64String(item.logo)" />
+                            </MudCarouselItem>
+                        }
+                    </MudCarousel>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">Gráfico de Processamento de Lote de RPS (Últimas 12Hrs)</h5>
+                <div class="card-body">
+                    <RadzenChart>
+                        <RadzenColumnSeries Data="@ProcessadosErro" Fill="rgb(220,53,69)" CategoryProperty="Hora" Title="Processados com Erro" LineType="LineType.Dashed" ValueProperty="Quantidade" />
+                        <RadzenColumnSeries Data="@SemLotes" Fill="rgb(108,117,125)" CategoryProperty="Hora" Title="Sem Lotes" LineType="LineType.Dashed" ValueProperty="Quantidade" />
+                        <RadzenColumnSeries Data="@ProcessadosSucesso" Fill="rgb(25,135,84)" CategoryProperty="Hora" Title="Processados com Sucesso" LineType="LineType.Dashed" ValueProperty="Quantidade" />
+                        <RadzenColumnSeries Data="@AguardandoProcessamento" Fill="rgb(225,193,7)" CategoryProperty="Hora" Title="Aguardando Processamento" LineType="LineType.Dashed" ValueProperty="Quantidade" />
+                        <RadzenColumnOptions Margin="0" />
+                    </RadzenChart>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    IEnumerable<Grafico> graficoMaioresEmissores;
+    IEnumerable<Grafico> graficoProcessos;
+
+    List<Grafico> SemLotes = new List<Grafico>();
+    List<Grafico> ProcessadosSucesso = new List<Grafico>();
+    List<Grafico> ProcessadosErro = new List<Grafico>();
+    List<Grafico> AguardandoProcessamento = new List<Grafico>();
+
+    string SemLotesTitulo;
+    string ProcessadosSucessoTitulo;
+    string ProcessadosErroTitulo;
+    string AguardandoProcessamentoTitulo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            graficoMaioresEmissores = await GraficoServico.TopPrefeituras();
+            graficoProcessos = await GraficoServico.Teste();
+
+            foreach (var item in graficoProcessos)
+            {
+                if (item.Situacao == "Sem Lotes")
+                {
+                    SemLotes.Add(item);
+                }
+                if (item.Situacao == "Processados com Sucesso")
+                {
+                    ProcessadosSucesso.Add(item);
+                }
+                if (item.Situacao == "Processados com Erro")
+                {
+                    ProcessadosErro.Add(item);
+                }
+                if (item.Situacao == "Aguardando Processamento")
+                {
+                    AguardandoProcessamento.Add(item);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+}
