@@ -36,7 +36,7 @@
 
 		#region " Funções/Consultas "
 
-		public async Task<IEnumerable<Grafico>> TopPrefeituras()
+		public async Task<IEnumerable<Grafico>> DadosGraficoMaioresEmissoresDeNFE()
 		{
 			try
 			{
@@ -68,7 +68,7 @@
 		}
 
 
-		public async Task<IEnumerable<Grafico>> Teste()
+		public async Task<IEnumerable<Grafico>> DadosGraficoProcessamentoDeLote()
 		{
 			try
 			{

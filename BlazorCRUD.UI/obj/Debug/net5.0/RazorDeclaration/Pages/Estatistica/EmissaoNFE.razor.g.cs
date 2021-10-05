@@ -129,17 +129,12 @@ using Interfaces;
     List<Grafico> ProcessadosErro = new List<Grafico>();
     List<Grafico> AguardandoProcessamento = new List<Grafico>();
 
-    string SemLotesTitulo;
-    string ProcessadosSucessoTitulo;
-    string ProcessadosErroTitulo;
-    string AguardandoProcessamentoTitulo;
-
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            graficoMaioresEmissores = await GraficoServico.TopPrefeituras();
-            graficoProcessos = await GraficoServico.Teste();
+            graficoMaioresEmissores = await GraficoServico.DadosGraficoMaioresEmissoresDeNFE();
+            graficoProcessos = await GraficoServico.DadosGraficoProcessamentoDeLote();
 
             foreach (var item in graficoProcessos)
             {

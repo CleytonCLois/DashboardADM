@@ -31,14 +31,14 @@
 
 		#region " Funções "
 
-		public Task<IEnumerable<Grafico>> TopPrefeituras()
+		public Task<IEnumerable<Grafico>> DadosGraficoMaioresEmissoresDeNFE()
 		{
-			return _GraficoRepositorio.TopPrefeituras();
+			return _GraficoRepositorio.DadosGraficoMaioresEmissoresDeNFE();
 		}
 
-		public Task<IEnumerable<Grafico>> Teste()
+		public Task<IEnumerable<Grafico>> DadosGraficoProcessamentoDeLote()
 		{
-			return _GraficoRepositorio.Teste();
+			return _GraficoRepositorio.DadosGraficoProcessamentoDeLote();
 		}
 
 		#endregion

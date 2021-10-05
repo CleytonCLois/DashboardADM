@@ -14,6 +14,7 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\site.css
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\favicon.ico
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\imgLoading.png
+C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\JavaScript.js
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\logo.png
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\obj\Release\net5.0\PubTmp\Out\appsettings.json

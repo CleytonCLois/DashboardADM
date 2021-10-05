@@ -119,7 +119,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 91 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Estatistica\EmissaoNFE.razor"
+#line 73 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Estatistica\EmissaoNFE.razor"
        
     IEnumerable<Grafico> graficoMaioresEmissores;
     IEnumerable<Grafico> graficoProcessos;
@@ -138,7 +138,6 @@ using Interfaces;
     {
         try
         {
-            var teste = navigationManager.Uri;
             graficoMaioresEmissores = await GraficoServico.TopPrefeituras();
             graficoProcessos = await GraficoServico.Teste();
 

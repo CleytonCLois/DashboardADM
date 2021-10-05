@@ -89,7 +89,7 @@ else
                                 <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
                                 <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização">
                                     <FooterTemplate>
-                                        Data mais desatualizada: <b>@String.Format("{0:d}", prefeiturasAtualizadas.OrderByDescending(o => o.ultimaAtualizacao).Last().ultimaAtualizacao)</b>
+                                            Última prefeitura atualizada: <b>@prefeiturasAtualizadas.OrderByDescending(o => o.ultimaAtualizacao).Last().ultimaAtualizacao</b>
                                     </FooterTemplate>
                                 </RadzenDataGridColumn>
                             </Columns>
@@ -113,7 +113,7 @@ else
                                 <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
                                 <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização">
                                     <FooterTemplate>
-                                        Data mais desatualizada: <b>@String.Format("{0:d}", prefeiturasAtualizadas24hrs.OrderByDescending(o => o.ultimaAtualizacao).Last().ultimaAtualizacao)</b>
+                                        Última prefeitura desatualizada nas últimas 24Hrs: <b>@prefeiturasAtualizadas24hrs.OrderByDescending(o => o.ultimaAtualizacao).Last().ultimaAtualizacao</b>
                                     </FooterTemplate>
                                 </RadzenDataGridColumn>
                             </Columns>
@@ -137,7 +137,7 @@ else
                                 <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
                                 <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização">
                                     <FooterTemplate>
-                                        Data mais desatualizada: <b>@String.Format("{0:d}", prefeiturasDesatualizadas.OrderByDescending(o => o.ultimaAtualizacao).Last().ultimaAtualizacao)</b>
+                                        Última prefeitura desatualizada: <b>@prefeiturasDesatualizadas.OrderByDescending(o => o.ultimaAtualizacao).Last().ultimaAtualizacao</b>
                                     </FooterTemplate>
                                 </RadzenDataGridColumn>
                             </Columns>
@@ -161,7 +161,7 @@ else
                                 <RadzenDataGridColumn TItem="Prefeitura" Property="nomePrefeitura" Title="Nome da Prefeitura" />
                                 <RadzenDataGridColumn TItem="Prefeitura" Property="ultimaAtualizacao" Title="Última Atualização">
                                     <FooterTemplate>
-                                        Data mais desatualizada: <b>@String.Format("{0:d}", prefeiturasDesatualizadasMaisDeUmaSemana.OrderByDescending(o => o.ultimaAtualizacao).Last().ultimaAtualizacao)</b>
+                                        Última prefeitura desatualizada a mais de uma semana: <b>@prefeiturasDesatualizadasMaisDeUmaSemana.OrderByDescending(o => o.ultimaAtualizacao).Last().ultimaAtualizacao</b>
                                     </FooterTemplate>
                                 </RadzenDataGridColumn>
                             </Columns>

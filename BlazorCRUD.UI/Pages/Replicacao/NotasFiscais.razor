@@ -16,7 +16,7 @@
 }
 else
 {
-    <meta HTTP-EQUIV="REFRESH" CONTENT="60">
+    @*<meta HTTP-EQUIV="REFRESH" CONTENT="60">*@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -71,10 +71,16 @@ else
         {
             notaFiscal = await NotaFiscalServico.CarregarDadosNotaFiscalADSIS01();
             notaFiscal2 = await NotaFiscalServico.CarregarDadosNotaFiscalADSIS02();
+            //Task.Delay(10000).ContinueWith(t => AtualizarPagina());
         }
         catch (Exception e)
         {
             throw;
         }
     }
+
+    //public void AtualizarPagina()
+    //{
+    //    navigationManager.NavigateTo("/NotasFiscais", true);
+    //}
 }

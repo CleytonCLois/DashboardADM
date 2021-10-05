@@ -15,9 +15,9 @@
 
         #region " Funções "
 
-        Task<IEnumerable<Grafico>> TopPrefeituras();
+        Task<IEnumerable<Grafico>> DadosGraficoMaioresEmissoresDeNFE();
 
-        Task<IEnumerable<Grafico>> Teste();
+        Task<IEnumerable<Grafico>> DadosGraficoProcessamentoDeLote();
 
         #endregion
     }

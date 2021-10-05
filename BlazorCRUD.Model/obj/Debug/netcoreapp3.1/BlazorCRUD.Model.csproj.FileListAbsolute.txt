@@ -23,4 +23,3 @@ C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Mo
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.dll
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.pdb
 C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.genruntimeconfig.cache
-C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.Model\obj\Debug\netcoreapp3.1\BlazorCRUD.Model.csproj.AssemblyReference.cache
