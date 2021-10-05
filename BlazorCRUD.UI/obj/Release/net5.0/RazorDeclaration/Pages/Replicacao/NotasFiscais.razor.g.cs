@@ -133,18 +133,12 @@ using Interfaces;
         {
             notaFiscal = await NotaFiscalServico.CarregarDadosNotaFiscalADSIS01();
             notaFiscal2 = await NotaFiscalServico.CarregarDadosNotaFiscalADSIS02();
-            //Task.Delay(10000).ContinueWith(t => AtualizarPagina());
         }
         catch (Exception e)
         {
             throw;
         }
     }
-
-    //public void AtualizarPagina()
-    //{
-    //    navigationManager.NavigateTo("/NotasFiscais", true);
-    //}
 
 #line default
 #line hidden

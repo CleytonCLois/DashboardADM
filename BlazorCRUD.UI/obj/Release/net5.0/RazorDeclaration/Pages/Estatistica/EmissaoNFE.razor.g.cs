@@ -119,7 +119,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 73 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Estatistica\EmissaoNFE.razor"
+#line 74 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Estatistica\EmissaoNFE.razor"
        
     IEnumerable<Grafico> graficoMaioresEmissores;
     IEnumerable<Grafico> graficoProcessos;
@@ -129,17 +129,12 @@ using Interfaces;
     List<Grafico> ProcessadosErro = new List<Grafico>();
     List<Grafico> AguardandoProcessamento = new List<Grafico>();
 
-    string SemLotesTitulo;
-    string ProcessadosSucessoTitulo;
-    string ProcessadosErroTitulo;
-    string AguardandoProcessamentoTitulo;
-
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            graficoMaioresEmissores = await GraficoServico.TopPrefeituras();
-            graficoProcessos = await GraficoServico.Teste();
+            graficoMaioresEmissores = await GraficoServico.DadosGraficoMaioresEmissoresDeNFE();
+            graficoProcessos = await GraficoServico.DadosGraficoProcessamentoDeLote();
 
             foreach (var item in graficoProcessos)
             {

@@ -119,7 +119,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 73 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Estatistica\EmissaoNFE.razor"
+#line 74 "C:\Users\Marcelo\Desktop\Pastas\Dashboard-AdmSistemas\DashboardADM\BlazorCRUD.UI\Pages\Estatistica\EmissaoNFE.razor"
        
     IEnumerable<Grafico> graficoMaioresEmissores;
     IEnumerable<Grafico> graficoProcessos;
